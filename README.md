@@ -1,3 +1,3 @@
 # TurnGames Framework
 
-A framework for creating a portal with simple turn-based games
+A framework for creating a webportal with simple turn-based games
