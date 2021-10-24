@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>UI</title>
+  <meta name="author" content="Jorengarenar">
+  <meta name="description" content="">
+</head>
+<style>
+
+  body {
+    display: flex;
+    height: 98vh;
+    width: 99vw;
+  }
+
+  nav, main, #right {
+    border: 1px solid black;
+  }
+
+  nav {
+    width: 300px;
+    height: 100%;
+    position: relative;
+  }
+
+  nav #game {
+    margin: 10px;
+    display: flex;
+  }
+
+  nav #game > img {
+    width: 60px;
+  }
+
+  nav #game > div {
+    margin-left: 10px;
+  }
+
+  nav footer {
+    position: absolute;
+    bottom: 0;
+    margin: 10px;
+    text-align: center;
+  }
+
+  main {
+    height: 100%;
+    width: available;
+    width: -moz-available;
+    display: block;
+    text-align: center;
+  }
+
+  #menubar {
+    border-bottom: 1px solid black;
+    text-align: left;
+    display: flex;
+  }
+
+  #menubar li {
+    list-style: none;
+    margin: 5px;
+    display: inline;
+  }
+
+  #usermenu {
+    margin-right: 20px;
+    margin-left: auto;
+  }
+
+  #board {
+    margin: 20px;
+    max-height: 80%;
+  }
+
+  #pieces {
+    border-top: 1px solid black;
+    text-align: left;
+  }
+
+  #pieces img {
+    margin: 10px;
+    max-height: 70px;
+  }
+
+  #right {
+    width: 300px;
+    height: 100%;
+  }
+
+  .player {
+    margin: 10px;
+    display: flex;
+  }
+
+  .player > img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .player > div {
+    margin-left: 10px;
+  }
+
+  .player.user {
+    display: block;
+    text-align: center;
+  }
+
+  .player.user > img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .player.user > div {
+    margin: 0;
+  }
+
+</style>
+<body>
+  <nav>
+    <div id="game">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Chess_Board.svg" />
+      <div>
+        <b>Chess</b><br>
+        2 players
+      </div>
+    </div>
+    <div id="game">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Menschenaergern.svg" />
+      <div>
+        <b>Mensch ärgere Dich nicht</b><br>
+        2-4 players
+      </div>
+    </div>
+    <footer>
+      Copyright &copy; team
+    </footer>
+  </nav>
+  <main>
+    <div id="menubar">
+      <ul id="gamemenu">
+        <li><a href="">New game</a></li>
+      </ul>
+      <ul id="usermenu">
+        <li><a href="">logout</a></li>
+      </ul>
+    </div>
+    <img id="board" src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Chess_Board.svg" />
+    <div id="pieces">
+      <img src="https://thumbs.dreamstime.com/b/vector-outline-queen-chess-icon-white-background-176235459.jpg">
+      <img src="https://thumbs.dreamstime.com/b/vector-outline-queen-chess-icon-white-background-176235459.jpg">
+      <img src="https://thumbs.dreamstime.com/b/vector-outline-queen-chess-icon-white-background-176235459.jpg">
+    </div>
+  </main>
+  <div id="right">
+    <div class="player user">
+      <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" />
+      <div>
+        <b>Me!Me!Me!</b><br>
+        <score>100 pkt</score>
+      </div>
+    </div>
+    <hr>
+    <div class="player">
+      <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" />
+      <div>
+        <b>Player 2</b><br>
+        <score>100 pkt</score>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
