@@ -1,0 +1,14 @@
+C:\Users\Dawid\Documents\tgf\TurnGamesFramework\bin\Debug\TurnGamesFramework.exe.config
+C:\Users\Dawid\Documents\tgf\TurnGamesFramework\bin\Debug\TurnGamesFramework.exe
+C:\Users\Dawid\Documents\tgf\TurnGamesFramework\bin\Debug\TurnGamesFramework.pdb
+C:\Users\Dawid\Documents\tgf\TurnGamesFramework\obj\Debug\TurnGamesFramework.csproj.AssemblyReference.cache
+C:\Users\Dawid\Documents\tgf\TurnGamesFramework\obj\Debug\TurnGamesFramework.csproj.CoreCompileInputs.cache
+C:\Users\Dawid\Documents\tgf\TurnGamesFramework\obj\Debug\TurnGamesFramework.exe
+C:\Users\Dawid\Documents\tgf\TurnGamesFramework\obj\Debug\TurnGamesFramework.pdb
+C:\Users\Dawid\Documents\TurnGames-Framework\HttpServer\bin\Debug\TurnGamesFramework.exe.config
+C:\Users\Dawid\Documents\TurnGames-Framework\HttpServer\bin\Debug\TurnGamesFramework.exe
+C:\Users\Dawid\Documents\TurnGames-Framework\HttpServer\bin\Debug\TurnGamesFramework.pdb
+C:\Users\Dawid\Documents\TurnGames-Framework\HttpServer\obj\Debug\TurnGamesFramework.csproj.AssemblyReference.cache
+C:\Users\Dawid\Documents\TurnGames-Framework\HttpServer\obj\Debug\TurnGamesFramework.csproj.CoreCompileInputs.cache
+C:\Users\Dawid\Documents\TurnGames-Framework\HttpServer\obj\Debug\TurnGamesFramework.exe
+C:\Users\Dawid\Documents\TurnGames-Framework\HttpServer\obj\Debug\TurnGamesFramework.pdb
