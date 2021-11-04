@@ -30,6 +30,7 @@ namespace TurnGamesFramework {
             output.Write(buffer, 0, buffer.Length);
             output.Close();
             listener.Stop();
+            RunHttpListener(prefixes, responser);
         }
     }
 }

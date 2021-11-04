@@ -1,2 +1,2 @@
-bin/
-obj/
+HttpServer/bin/*
+HttpServer/obj/*
