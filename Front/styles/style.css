@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 1rem;
+}
+
+.container {
+    display: flex;
+}
+
+.gamesBar {
+    width: 15%;
+    border: 1px solid black;
+    height: calc(100vh - 2rem);
+}
+
+.gamesBar__list {
+    list-style-type: none;
+    margin: 1rem;
+}
+
+.gamesBar__game {
+    display: flex;
+    margin: 1rem;
+    cursor: pointer;
+}
+
+.gamesBar__itemPhoto {
+    width: 3.5rem;
+}
+
+.gamesBar__itemPhoto img {
+    width: 100%;
+}
+
+.gamesBar__title {
+    margin-left: 1rem;
+}
+
+.gamesBar__title h4 {
+    font-weight: normal;
+}
+
+.game {
+    width: 70%;
+    height: calc(100vh - 2rem);
+    border: 1px solid black;
+    border-left: none;
+    border-right: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.game__settings {
+    height: 10%;
+    border-bottom: 1px solid black;
+    padding: 2rem;
+    display: flex;
+}
+
+.game__board {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.game__board img {
+    max-width: 100%;
+    height: 100%;
+}
+
+.game__pieces {
+    height: 10%;
+    border-top: 1px solid black;
+    padding: 1rem;
+}
+
+.game__pieces img {
+    width: 3.5rem;
+}
+
+.playerBar {
+    width: 15%;
+    height: calc(100vh - 2rem);
+    border: 1px solid black;
+}
+
+.spacer {
+    flex: 1;
+}
