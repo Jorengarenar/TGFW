@@ -58,6 +58,8 @@ body {
 .game__settings {
     height: 10%;
     border-bottom: 1px solid black;
+    padding: 2rem;
+    display: flex;
 }
 
 .game__board {
@@ -88,11 +90,6 @@ body {
     width: 15%;
     height: calc(100vh - 2rem);
     border: 1px solid black;
-}
-
-.game__settings {
-    padding: 2rem;
-    display: flex;
 }
 
 .spacer {
