@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Net;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace TurnGamesFramework {
     class Program {
         
         static void Main(string[] args) {
-            List<string> prefixes = new List<string>{ "http://*:29173/" };
-            RunHttpListener(prefixes, SimpleHello);
+            string generalPrefix = "http://*:29173/";
+            //RunHttpListener(generalPrefix, SimpleHello);
+            RunHttpListener($"{generalPrefix}available_games/", AvailableGames);
         }
 
         delegate string Responser(HttpListenerContext httpListenerContext);
@@ -16,9 +18,13 @@ namespace TurnGamesFramework {
             return "Hello, Your query was: " + httpListenerContext.Request.Url;
         }
 
-        static void RunHttpListener(List<string> prefixes, Responser responser) {
+        static string AvailableGames(HttpListenerContext httpListenerContext) {
+            return JsonSerializer.Serialize(new List<string>() { "Chees", "Monopoly", "Checkers" });
+        }
+
+        static void RunHttpListener(string prefix, Responser responser) {
             HttpListener listener = new HttpListener();
-            prefixes.ForEach(prefix => listener.Prefixes.Add(prefix));
+            listener.Prefixes.Add(prefix);
             listener.Start();
             Console.WriteLine("Listening...");
             HttpListenerContext context = listener.GetContext();
@@ -30,7 +36,7 @@ namespace TurnGamesFramework {
             output.Write(buffer, 0, buffer.Length);
             output.Close();
             listener.Stop();
-            RunHttpListener(prefixes, responser);
+            RunHttpListener(prefix, responser);
         }
     }
 }
