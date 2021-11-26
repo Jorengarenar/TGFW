@@ -7,9 +7,9 @@ namespace TurnGamesFramework {
     class Program {
         
         static void Main(string[] args) {
-            string generalPrefix = "http://*:29173/";
+            string generalPrefix = "http://*:29173";
             //RunHttpListener(generalPrefix, SimpleHello);
-            RunHttpListener($"{generalPrefix}available_games/", AvailableGames);
+            RunHttpListener($"{generalPrefix}/available_games/", AvailableGames);
         }
 
         delegate string Responser(HttpListenerContext httpListenerContext);
@@ -19,7 +19,7 @@ namespace TurnGamesFramework {
         }
 
         static string AvailableGames(HttpListenerContext httpListenerContext) {
-            return JsonSerializer.Serialize(new List<string>() { "Chees", "Monopoly", "Checkers" });
+            return JsonSerializer.Serialize(new List<string>() { "Chees", "Checkers" });
         }
 
         static void RunHttpListener(string prefix, Responser responser) {
