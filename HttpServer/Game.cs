@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
 
 namespace TurnGamesFramework {
-    internal abstract class Game {
+    public abstract class Game {
 
-        protected Board board;
+        public Board board { get; set; }
+
+        public string GameJSON() {
+            return JsonSerializer.Serialize(this);
+        }
     }
 }
