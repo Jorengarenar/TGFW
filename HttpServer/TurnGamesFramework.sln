@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31613.86
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurnGamesFramework", "TurnGamesFramework.csproj", "{81BA8D96-E779-433A-819F-488CBBD9032B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chess", "..\Chees\Chess.csproj", "{45BE780A-DA81-4341-AA90-F57E4FDAF668}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessPoint", "..\AccessPoint\AccessPoint.csproj", "{D289DDD4-74FB-42F0-9AC8-02AF396812B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{81BA8D96-E779-433A-819F-488CBBD9032B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81BA8D96-E779-433A-819F-488CBBD9032B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81BA8D96-E779-433A-819F-488CBBD9032B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45BE780A-DA81-4341-AA90-F57E4FDAF668}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45BE780A-DA81-4341-AA90-F57E4FDAF668}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45BE780A-DA81-4341-AA90-F57E4FDAF668}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45BE780A-DA81-4341-AA90-F57E4FDAF668}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D289DDD4-74FB-42F0-9AC8-02AF396812B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D289DDD4-74FB-42F0-9AC8-02AF396812B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D289DDD4-74FB-42F0-9AC8-02AF396812B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D289DDD4-74FB-42F0-9AC8-02AF396812B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

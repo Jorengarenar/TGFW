@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace TurnGamesFramework {
-    internal class Tile {
+    public class Tile {
 
-        internal string texturePath;
+        public string texturePath { get; set; }
 
-        internal List<Piece> pieces = new List<Piece>();
+        public List<Piece> pieces { get; set; }
     }
 }

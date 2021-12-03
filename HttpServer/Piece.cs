@@ -5,6 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TurnGamesFramework {
-    internal class Piece {
+    public class Piece {
     }
 }
