@@ -1,4 +1,4 @@
-const gamesList = document.querySelector(".gamesBar__list");
+const gamesList = document.querySelector("#gamesList");
 
 const getGamesList = () => {
 
@@ -24,15 +24,11 @@ const showGamesList = () => {
         const newGameEl = document.createElement("li");
         newGameEl.classList.add("gamesBar__game");
 
-        const imgContainer = document.createElement("div");
-        imgContainer.classList.add("gamesBar__itemPhoto");
-        imgContainer.classList.add("https://upload.wikimedia.org/wikipedia/commons/d/d5/Chess_Board.svg");
-
         const img = document.createElement("img");
         img.src = game.img;
 
         const titleContainer = document.createElement("div");
-        titleContainer.classList.add("gamesBar__title");
+        titleContainer.classList.add("title");
 
         const gameName = document.createElement("h3");
         gameName.textContent = game.name;
@@ -40,14 +36,12 @@ const showGamesList = () => {
         const playersAmount = document.createElement("h4")
         playersAmount.textContent = `${game.playersAmount} Players`;
 
-        imgContainer.appendChild(img);
         titleContainer.appendChild(gameName);
         titleContainer.appendChild(playersAmount);
-        newGameEl.appendChild(imgContainer);
+        newGameEl.appendChild(img);
         newGameEl.appendChild(titleContainer);
 
         gamesList.appendChild(newGameEl);
-
     });
 
 }

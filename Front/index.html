@@ -1,52 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TGFW</title>
-    <link rel="stylesheet" href="./styles/style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TGFW</title>
+  <link rel="stylesheet/less" type="text/css" href="styles.less">
+  <script src="https://cdn.jsdelivr.net/npm/less@4.1.1" ></script>
 </head>
-
 <body>
+  <nav>
+    <button>Logout</button>
+  </nav>
+  <main>
+    <ul id="gamesList"></ul>
 
-    <div class="container">
-        <div class="gamesBar">
-            <ul class="gamesBar__list">
-            </ul>
+    <div id="game">
+      <div class="game__settings">
+        <button>New Game</button>
+      </div>
 
+      <div class="board">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Chess_Board.svg" />
+      </div>
 
-        </div>
-
-        <div class="game">
-            <div class="game__settings">
-                <a href="#" class="game__settingsBtn">New Game</a>
-                <div class="spacer"></div>
-                <a href="#" class="game__settingsBtn">Logout</a>
-            </div>
-
-            <div class="game__board">
-                <img id="board" src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Chess_Board.svg" />
-            </div>
-
-            <div class="game__pieces">
-                <img src="https://thumbs.dreamstime.com/b/vector-outline-queen-chess-icon-white-background-176235459.jpg">
-                <img src="https://thumbs.dreamstime.com/b/vector-outline-queen-chess-icon-white-background-176235459.jpg">
-                <img src="https://thumbs.dreamstime.com/b/vector-outline-queen-chess-icon-white-background-176235459.jpg">
-            </div>
-
-        </div>
-
-        <div class="playerBar">
-
-        </div>
-
-
+      <div class="game__pieces">
+        <img src="https://thumbs.dreamstime.com/b/vector-outline-queen-chess-icon-white-background-176235459.jpg">
+        <img src="https://thumbs.dreamstime.com/b/vector-outline-queen-chess-icon-white-background-176235459.jpg">
+        <img src="https://thumbs.dreamstime.com/b/vector-outline-queen-chess-icon-white-background-176235459.jpg">
+      </div>
     </div>
-
-    <script src="./scripts/script.js"></script>
-
+    <div class="playerBar"></div>
+  </main>
+  <script src="./scripts/script.js"></script>
 </body>
-
 </html>
+
+<!-- vim: set fdl=1: -->
