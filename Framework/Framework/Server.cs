@@ -8,9 +8,11 @@ namespace Framework {
     public abstract class Server {
 
         private string generalPrefix = "http://*:29173";
+        private List<string> prefixes;
 
-        public Server(string serverName) {
+        public Server(string serverName, List<string> prefixes) {
             generalPrefix += $"/{serverName}";
+            this.prefixes = prefixes;
             RunHttpListener();
         }
 
@@ -18,9 +20,7 @@ namespace Framework {
             while (true) {
                 string responseString = "";
                 HttpListener listener = new HttpListener();
-                listener.Prefixes.Add($"{generalPrefix}/available_games/");
-                listener.Prefixes.Add($"{generalPrefix}/get/");
-                listener.Prefixes.Add($"{generalPrefix}/chess_create/");
+                prefixes.ForEach(x => listener.Prefixes.Add($"{generalPrefix}/{x}/"));
                 listener.Start();
                 HttpListenerContext context = listener.GetContext();
                 HttpListenerResponse response = context.Response;

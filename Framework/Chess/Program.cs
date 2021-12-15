@@ -1,13 +1,13 @@
 ﻿using Framework;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Chess {
-    internal class Program {      
+    internal class Program {
+
+        private static readonly string[] prefixes = { "create", "get" };
 
         static void Main(string[] args) {
-            Server server = new ChessServer("chess");
+            Server server = new ChessServer("chess", prefixes.ToList());
         }
     }
 }
