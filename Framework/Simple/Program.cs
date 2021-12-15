@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace Simple {
+﻿namespace Simple {
     internal class Program {
         
         static void Main(string[] args) {
-            Simple lands = new Simple();
+            Simple simple = new Simple();
         }
     }
 }

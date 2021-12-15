@@ -1,5 +1,0 @@
-C:\Users\Dawid\Documents\TurnGames-Framework\Framework\AccessPoint\obj\Debug\net5.0\AccessPoint.csproj.AssemblyReference.cache
-C:\Users\Dawid\Documents\TurnGames-Framework\Framework\AccessPoint\obj\Debug\net5.0\AccessPoint.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Dawid\Documents\TurnGames-Framework\Framework\AccessPoint\obj\Debug\net5.0\AccessPoint.AssemblyInfoInputs.cache
-C:\Users\Dawid\Documents\TurnGames-Framework\Framework\AccessPoint\obj\Debug\net5.0\AccessPoint.AssemblyInfo.cs
-C:\Users\Dawid\Documents\TurnGames-Framework\Framework\AccessPoint\obj\Debug\net5.0\AccessPoint.csproj.CoreCompileInputs.cache
