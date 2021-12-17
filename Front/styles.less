@@ -1,8 +1,20 @@
 body {
-  margin: 1rem;
   margin: 0;
-  padding: 0;
+  overflow-x: hidden;
   box-sizing: border-box;
+}
+
+button {
+  background: #222;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin: 3px;
+  padding: 5px;
+
+  &:hover {
+    background: #333;
+  }
 }
 
 nav {
@@ -10,25 +22,38 @@ nav {
   position: sticky;
   top: 0;
   left: 0;
+  background: gray;
+  text-align: right;
 }
 
 main {
-  display: flex;
+  & {
+    display: flex;
+    margin: 20px;
+    height: calc(100vh - 2em);
+  }
+
+  > * {
+    max-height: 95%;
+  }
 }
 
-#gamesList {
+ul {
+  padding-left: 0;
+  list-style-type: none;
+  margin: 0;
+}
+
+ul#gamesList {
   & {
     width: 15%;
     border: 1px solid black;
-    height: calc(100vh - 2rem);
-    list-style-type: none;
-    margin: 1rem;
   }
 
   > li {
     & {
       display: flex;
-      margin: 1rem;
+      margin: 1em 1em;
       cursor: pointer;
     }
 
@@ -37,43 +62,35 @@ main {
       height: min-content;
     }
 
-    .title {
-      h3 {
-        margin-left: 1rem;
-      }
-
-      h4 {
-        font-weight: normal;
-      }
+    > :nth-child(2) > * {
+      margin-left: 1em;
+      display: block;
     }
   }
 }
 
 #game {
   & {
-    width: 70%;
-    height: calc(100vh - 2rem);
-    border: 1px solid black;
-    border-left: none;
-    border-right: none;
     display: flex;
+    flex: 1;
     flex-direction: column;
+    margin: 0 1em;
+    max-height: 100%;
   }
 
-  .game__settings {
-    height: 10%;
-    border-bottom: 1px solid black;
+  .options {
+    height: 33px;
     display: flex;
   }
 
   .board {
     & {
       width: 100%;
-      height: 80%;
+      min-height: 0;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 2rem;
+      padding: 1em;
     }
 
     img {
@@ -82,11 +99,12 @@ main {
     }
   }
 
-  .game__pieces {
+  #pieces {
     & {
       height: 10%;
       border-top: 1px solid black;
       padding: 1rem;
+      margin-top: auto;
     }
 
     img {
@@ -95,8 +113,45 @@ main {
   }
 }
 
-.playerBar {
-  width: 15%;
-  height: calc(100vh - 2rem);
-  border: 1px solid black;
+ul#players {
+  & {
+    width: 15%;
+    border: 1px solid black;
+  }
+
+  .player {
+    & {
+      & {
+        margin: 10px;
+        display: flex;
+      }
+
+      > img {
+        width: 50px;
+        height: 50px;
+      }
+
+      > div {
+        margin-left: 10px;
+      }
+    }
+
+    &.user {
+      & {
+        display: block;
+        text-align: center;
+        border-bottom: 1px solid black;
+      }
+
+      > img {
+        width: 200px;
+        height: 200px;
+      }
+
+      > div {
+        margin: 0;
+      }
+    }
+  }
+
 }

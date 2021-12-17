@@ -3,14 +3,14 @@ const gamesList = document.querySelector("#gamesList");
 const getGamesList = () => {
 
     const games = [{
-            name: "chess",
+            name: "Chess",
             img: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Chess_Board.svg",
             playersAmount: 4
         },
         {
-            name: "chess",
-            img: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Chess_Board.svg",
-            playersAmount: 2
+            name: "Mensch ärgere Dich nicht",
+            img: "https://upload.wikimedia.org/wikipedia/commons/9/91/Menschenaergern.svg",
+            playersAmount: "2-4"
         }
     ]
 
@@ -28,15 +28,15 @@ const showGamesList = () => {
         img.src = game.img;
 
         const titleContainer = document.createElement("div");
-        titleContainer.classList.add("title");
 
-        const gameName = document.createElement("h3");
-        gameName.textContent = game.name;
+        const gameTitle = document.createElement("b");
+        gameTitle.textContent = game.name;
+        gameTitle.classList.add("title");
 
-        const playersAmount = document.createElement("h4")
+        const playersAmount = document.createElement("i")
         playersAmount.textContent = `${game.playersAmount} Players`;
 
-        titleContainer.appendChild(gameName);
+        titleContainer.appendChild(gameTitle);
         titleContainer.appendChild(playersAmount);
         newGameEl.appendChild(img);
         newGameEl.appendChild(titleContainer);
