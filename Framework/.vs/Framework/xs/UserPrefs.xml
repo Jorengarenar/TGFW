@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{8C44C508-47A1-40B8-AAA9-D8239233EB07}|Default">
   <MonoDevelop.Ide.ItemProperties.Docs PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Docs/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Docs/DocsServer.cs">
     <Files>
-      <File FileName="Docs/Program.cs" Line="14" Column="49" />
-      <File FileName="Docs/DocsServer.cs" Line="1" Column="1" />
+      <File FileName="Docs/Program.cs" Line="10" Column="60" />
+      <File FileName="Docs/DocsServer.cs" Line="5" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,7 +11,11 @@
           <Node name="Framework" expanded="True">
             <Node name="Chess" expanded="True" />
             <Node name="Docs" expanded="True">
-              <Node name="Program.cs" selected="True" />
+              <Node name="Dependencies" expanded="True">
+                <Node name="FrameworkReferences" expanded="True">
+                  <Node name="Microsoft.NETCore.App" selected="True" />
+                </Node>
+              </Node>
             </Node>
             <Node name="Framework" expanded="True" />
             <Node name="Simple" expanded="True" />

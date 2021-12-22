@@ -14,7 +14,8 @@ namespace Docs
             string responseString = "";
             if (request.Contains("docs"))
             {
-                responseString = System.IO.File.ReadAllText("./docs/index.html");
+                Console.WriteLine(System.IO.Directory.GetCurrentDirectory());
+                responseString = System.IO.File.ReadAllText("./assets/docs/index.html");
             }
             return responseString;
         }
