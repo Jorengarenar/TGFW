@@ -1,36 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Framework {
-    public class TurnsMediator {
+    public abstract class TurnsMediator {
 
         public int waitingFor = 0;
+        public readonly List<Player> players = new List<Player>();
+
         public delegate void Handler(int id, string content);
+        public delegate void Won();
+        public delegate bool IsWon();
         
-        protected readonly List<Player> players = new List<Player>();
-        protected Handler handler;
+        public Handler handler;
+        public IsWon isWon;
+        public Won won;
 
-        public TurnsMediator(Handler handler) {
-            this.handler = handler;
-        }
+        public abstract void AddPlayer(Player player);
 
-        public void AddPlayer(Player player) { 
-            players.Add(player);
-        }
+        public abstract void Start();
 
-        public void Start() {
-            players[waitingFor].Move();
-        }
-
-        public void Notify(int id, string content) {
-            if (id == waitingFor) {
-                waitingFor = (waitingFor + 1) % players.Count;
-                handler(id, content);
-                players[waitingFor].Move();
-            }
-        }
+        public abstract void Notify(int id, string content);
     }
 }
