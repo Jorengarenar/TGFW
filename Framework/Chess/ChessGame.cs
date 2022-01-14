@@ -9,9 +9,9 @@ namespace Chess {
                 for (int j = 0; j < 8; ++j) { 
                     Tile temp = this.Board.GetTile(i, j);
                     if ((i * 8 + j) % 2 == 0) {
-                        temp.texturePath = "img/chess/lightTile.png";
+                        temp.TexturePath = "img/chess/lightTile.png";
                     } else {
-                        temp.texturePath = "img/chess/darkTile.png";
+                        temp.TexturePath = "img/chess/darkTile.png";
                     }
                 }
             }
