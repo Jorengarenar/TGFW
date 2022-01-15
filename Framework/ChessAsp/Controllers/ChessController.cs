@@ -23,11 +23,10 @@ namespace ChessAsp.Controllers
         }
 
         [HttpPost]
-        public Game Post()
+        public int Post()
         {
-            var newGame = new ChessGame();
-            repository.Add(newGame);
-            return newGame;
+            repository.Add(new ChessGame());
+            return repository.Count() - 1;
         }
     }
 }
