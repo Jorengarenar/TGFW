@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31912.275
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework", "Framework\Framework.csproj", "{5E7E2B1E-C26C-4747-8DD4-F3733773DAD6}"
 EndProject
@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple", "Simple\Simple.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Docs", "Docs\Docs.csproj", "{8C44C508-47A1-40B8-AAA9-D8239233EB07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lands", "Lands\Lands.csproj", "{05242E9E-185E-44EA-B78B-A6D8F1988FC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lands", "Lands\Lands.csproj", "{05242E9E-185E-44EA-B78B-A6D8F1988FC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessAsp", "ChessAsp\ChessAsp.csproj", "{F4B91E56-21F9-4E90-841F-D428E791A187}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{05242E9E-185E-44EA-B78B-A6D8F1988FC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05242E9E-185E-44EA-B78B-A6D8F1988FC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05242E9E-185E-44EA-B78B-A6D8F1988FC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4B91E56-21F9-4E90-841F-D428E791A187}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4B91E56-21F9-4E90-841F-D428E791A187}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4B91E56-21F9-4E90-841F-D428E791A187}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4B91E56-21F9-4E90-841F-D428E791A187}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
