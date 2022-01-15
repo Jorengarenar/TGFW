@@ -9,6 +9,7 @@ namespace ChessAsp.Repository
     public class ChessRepository
     {
         private List<Game> games = new List<Game>();
+        private int count = 0;
 
         public IEnumerable<Game> GetAll()
         {
@@ -34,7 +35,13 @@ namespace ChessAsp.Repository
                 throw new ArgumentNullException("item");
             }
             games.Add(item);
+            count++;
             return item;
+        }
+
+        public int Count()
+        {
+            return count;
         }
     }
 }
