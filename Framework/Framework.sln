@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple", "Simple\Simple.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lands", "Lands\Lands.csproj", "{05242E9E-185E-44EA-B78B-A6D8F1988FC9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chess", "ChessAsp\Chess.csproj", "{F4B91E56-21F9-4E90-841F-D428E791A187}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChessAsp", "ChessAsp\ChessAsp.csproj", "{F4B91E56-21F9-4E90-841F-D428E791A187}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
