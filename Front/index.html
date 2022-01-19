@@ -12,37 +12,18 @@
 <body>
   <main>
     <div id="game">
-      <div class="options">
-        <button onclick="newGame()">New Game</button>
-        <button onclick="showId()">id Game</button>
-      </div>
-
-      <div class="board">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Chess_Board.svg" />
-      </div>
-
-      <div id="pieces">
-        <img src="https://thumbs.dreamstime.com/b/vector-outline-queen-chess-icon-white-background-176235459.jpg">
-        <img src="https://thumbs.dreamstime.com/b/vector-outline-queen-chess-icon-white-background-176235459.jpg">
-        <img src="https://thumbs.dreamstime.com/b/vector-outline-queen-chess-icon-white-background-176235459.jpg">
-      </div>
+      <nav>
+        <div class="options">
+          <button onclick="newGame()">Host new game</button>
+          <button onclick="joinGame()">Join game</button>
+        </div>
+        <div>
+          Game ID: <span id="gameId"> </span>
+        </div>
+      </nav>
+      <div id="board"></div>
+      <div id="pieces"></div>
     </div>
-    <ul id="players">
-      <li class="player user">
-        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" />
-        <div>
-          <b>Me!Me!Me!</b><br>
-          <span>100 pkt</span>
-        </div>
-      </li>
-      <li class="player">
-        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" />
-        <div>
-          <b>Player 2</b><br>
-          <span>100 pkt</span>
-        </div>
-      </li>
-    </ul>
   </main>
 </body>
 </html>

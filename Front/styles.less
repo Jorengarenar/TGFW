@@ -22,7 +22,6 @@ nav {
   position: sticky;
   top: 0;
   left: 0;
-  background: gray;
   text-align: right;
 }
 
@@ -83,32 +82,26 @@ ul#gamesList {
     display: flex;
   }
 
-  .board {
+  #board {
     & {
-      width: 100%;
-      min-height: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1em;
+      display: grid;
+      border: 1px solid black;
+      width: min-content;
     }
 
     img {
       max-width: 100%;
       height: 100%;
     }
-  }
 
-  #pieces {
-    & {
-      height: 10%;
-      border-top: 1px solid black;
-      padding: 1rem;
-      margin-top: auto;
+    > div {
+      position: relative;
     }
 
-    img {
-      width: 3.5rem;
+    > div::before {
+      content: attr(data-piece);
+      position: absolute;
+      color: #666;
     }
   }
 }
