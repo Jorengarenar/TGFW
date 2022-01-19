@@ -2,9 +2,9 @@ name: ChessAsp
 
 on:
   push:
-    branches: [ wip-build_automation ]
+    branches: [ master ]
   pull_request:
-    branches: [ wip-build_automation ]
+    branches: [ master ]
 
 jobs:
   build:
