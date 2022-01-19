@@ -1,4 +1,10 @@
-﻿using System.Collections.Generic;
+﻿/* SPDX-License-Identifier:  Apache-2.0
+ * Copyright 2021-2022 DawidMoza
+ * Copyright 2021-2022 dolidius
+ * Copyright      2022 Jorengarenar
+ */
+
+using System.Collections.Generic;
 
 namespace Framework {
     public abstract class TurnsMediator {
@@ -9,7 +15,7 @@ namespace Framework {
         public delegate void Handler(int id, string content);
         public delegate void Won();
         public delegate bool IsWon();
-        
+
         public Handler handler;
         public IsWon isWon;
         public Won won;

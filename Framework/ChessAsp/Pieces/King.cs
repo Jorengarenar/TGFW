@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* SPDX-License-Identifier:  Apache-2.0
+ * Copyright 2021-2022 DawidMoza
+ * Copyright 2021-2022 dolidius
+ * Copyright      2022 Jorengarenar
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,8 +28,8 @@ namespace ChessAsp.Pieces
         {
             string prefix = "w";
             if (color == "black") prefix = "b";
-            if (   ((src.x == dst.x && (src.y + 1 == dst.y || src.y - 1 == dst.y)) 
-                || (src.y == dst.y && (src.x + 1 == dst.x || src.x - 1 == dst.x)) 
+            if (   ((src.x == dst.x && (src.y + 1 == dst.y || src.y - 1 == dst.y))
+                || (src.y == dst.y && (src.x + 1 == dst.x || src.x - 1 == dst.x))
                 || (src.x - 1 == dst.x && src.y + 1 == dst.y)
                 || (src.x + 1 == dst.x && src.y + 1 == dst.y)
                 || (src.x + 1 == dst.x && src.y - 1 == dst.y)
@@ -306,4 +312,3 @@ namespace ChessAsp.Pieces
 
     }
 }
-

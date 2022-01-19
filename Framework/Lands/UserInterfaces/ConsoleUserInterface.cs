@@ -1,3 +1,9 @@
+/* SPDX-License-Identifier:  Apache-2.0
+ * Copyright 2021-2022 DawidMoza
+ * Copyright 2021-2022 dolidius
+ * Copyright      2022 Jorengarenar
+ */
+
 using Framework;
 using System;
 using System.Collections.Generic;
@@ -7,7 +13,7 @@ using static Lands.LandsPiece;
 namespace Lands {
     internal class ConsoleUserInterface : IUserInterface {
 
-        public List<LandsPlayerData> GetPlayersData() { 
+        public List<LandsPlayerData> GetPlayersData() {
             List<LandsPlayerData> data = new List<LandsPlayerData>();
             ConsoleColor[] colors = (ConsoleColor[]) Enum.GetValues(typeof(ConsoleColor)).Cast<ConsoleColor>()
                 .Where(x => x != ConsoleColor.Black && x != ConsoleColor.White)

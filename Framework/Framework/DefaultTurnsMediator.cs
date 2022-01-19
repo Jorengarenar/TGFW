@@ -1,6 +1,12 @@
-﻿namespace Framework {
+﻿/* SPDX-License-Identifier:  Apache-2.0
+ * Copyright 2021-2022 DawidMoza
+ * Copyright 2021-2022 dolidius
+ * Copyright      2022 Jorengarenar
+ */
+
+namespace Framework {
     public class DefaultTurnsMediator : TurnsMediator {
-        
+
         public DefaultTurnsMediator(Handler handler, IsWon isWon, Won won) {
             this.handler = handler;
             this.isWon = isWon;
