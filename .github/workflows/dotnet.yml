@@ -18,7 +18,7 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      run: dotnet restore Framework/ChessAsp
+      run: dotnet restore --runtime linux-x64 -property:SelfContained=true Framework/ChessAsp
     - name: Build
       run: dotnet build --runtime linux-x64 -property:SelfContained=true --no-restore Framework/ChessAsp
     - name: Upload artifacts
