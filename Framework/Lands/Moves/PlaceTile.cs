@@ -7,10 +7,8 @@
 using Framework;
 
 namespace Lands {
-
     //tile:availableTileIndex;tileX;tileY
     public class PlaceTile : Move {
-
         public PlaceTile(Game game) : base(game) {}
 
         public override void Make(string command) {

@@ -14,7 +14,6 @@ namespace ChessAsp.Pieces
 {
     public class Queen: Piece, IChessPiece
     {
-
         public string Color { get; set; }
 
         public Queen(string color)

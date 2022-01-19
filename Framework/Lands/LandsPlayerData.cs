@@ -8,7 +8,6 @@ using System;
 
 namespace Lands {
     internal class LandsPlayerData {
-
         public string name;
         public ConsoleColor color;
 

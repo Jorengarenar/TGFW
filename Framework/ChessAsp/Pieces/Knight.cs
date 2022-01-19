@@ -42,6 +42,5 @@ namespace ChessAsp.Pieces
 
             return false;
         }
-
     }
 }

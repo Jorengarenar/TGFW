@@ -12,7 +12,6 @@ using static Lands.LandsPiece;
 
 namespace Lands {
     internal class ConsoleUserInterface : IUserInterface {
-
         public List<LandsPlayerData> GetPlayersData() {
             List<LandsPlayerData> data = new List<LandsPlayerData>();
             ConsoleColor[] colors = (ConsoleColor[]) Enum.GetValues(typeof(ConsoleColor)).Cast<ConsoleColor>()

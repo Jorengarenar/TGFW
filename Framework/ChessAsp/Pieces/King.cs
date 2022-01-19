@@ -13,9 +13,7 @@ using Framework;
 namespace ChessAsp.Pieces
 {
     public class King: Piece, IChessPiece
-
     {
-
         public string Color { get; set; }
 
         public King (string color)
@@ -49,7 +47,6 @@ namespace ChessAsp.Pieces
             {
                 return true;
             }
-
 
             return false;
         }
@@ -130,7 +127,6 @@ namespace ChessAsp.Pieces
 
         static public bool IsRookQueenChecking(Coordinate Coordinates, ChessGame Game, string Color)
         {
-
             bool result = false;
 
             string[] checkingPieces = new string[] { "brook", "bqueen" };
@@ -285,7 +281,6 @@ namespace ChessAsp.Pieces
             }
 
             return result;
-
         }
 
         static public bool IsInCheck (ChessGame game, string color)
@@ -309,6 +304,5 @@ namespace ChessAsp.Pieces
 
             return null;
         }
-
     }
 }

@@ -9,7 +9,6 @@ using System;
 
 namespace Simple {
     internal class Simple : Game {
-
         internal Simple() {
             this.turnsMediator = new TurnsMediator(Handler);
             this.turnsMediator.AddPlayer(new Player1(this.turnsMediator, 0));

@@ -12,7 +12,6 @@ using System.Text.Json;
 
 namespace Framework {
     public abstract class Server {
-
         private string generalPrefix = "http://*:29173";
         private List<string> prefixes;
 

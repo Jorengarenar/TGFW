@@ -8,7 +8,6 @@ using System.Collections.Generic;
 
 namespace Framework {
     public class Board {
-
         public List<Tile> Tiles { get; set; }
         public int Width { get; set; }
         public int Height { get; set; }

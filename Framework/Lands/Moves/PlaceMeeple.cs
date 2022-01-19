@@ -7,7 +7,6 @@
 using Framework;
 
 namespace Lands {
-
     //meeple:pieceIndex;tileX;tileY;ownerId
     public class PlaceMeeple : Move {
         public PlaceMeeple(Game game) : base(game) { }

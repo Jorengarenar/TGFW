@@ -9,7 +9,6 @@ using System;
 
 namespace Lands {
     internal class LandsPlayer : Player {
-
         public ConsoleColor consoleColor;
         private IUserInterface userInterface;
 

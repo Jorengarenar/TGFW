@@ -6,7 +6,6 @@
 
 namespace Framework {
      public abstract class Move {
-
         public Game game;
 
         public Move(Game game) {
