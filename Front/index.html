@@ -6,15 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TGFW</title>
   <link rel="stylesheet/less" type="text/css" href="styles.less">
-  <script src="https://cdn.jsdelivr.net/npm/less@4.1.1" ></script>
+  <script src="https://cdn.jsdelivr.net/npm/less@4.1.1"></script>
+  <script src="script.js"></script>
 </head>
 <body>
-  <nav> <button>Logout</button> </nav>
   <main>
-    <ul id="gamesList"></ul>
     <div id="game">
       <div class="options">
-        <button>New Game</button>
+        <button onclick="newGame()">New Game</button>
+        <button onclick="showId()">id Game</button>
       </div>
 
       <div class="board">
@@ -44,7 +44,6 @@
       </li>
     </ul>
   </main>
-  <script src="./scripts/script.js"></script>
 </body>
 </html>
 
