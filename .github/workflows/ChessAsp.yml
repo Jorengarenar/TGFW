@@ -1,4 +1,4 @@
-name: .NET
+name: ChessAsp
 
 on:
   push:
@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -24,5 +23,5 @@ jobs:
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: my-artifact
-        path: Framework/
+        name: ChessAsp
+        path: Framework/ChessAsp/bin/Debug/net5.0/linux-x64
