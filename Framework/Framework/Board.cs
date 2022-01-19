@@ -26,11 +26,11 @@ namespace Framework {
         }
 
         public void SetTile(Tile tile, int x, int y) {
-            Tiles[Height * y + x] = tile;
+            Tiles[(Height * y) + x] = tile;
         }
 
         public Tile GetTile(int x, int y) {
-            return Tiles[Height * y + x];
+            return Tiles[(Height * y) + x];
         }
 
         public int GetWidth() {
