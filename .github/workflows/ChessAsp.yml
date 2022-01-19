@@ -1,0 +1,27 @@
+name: ChessAsp
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: dotnet restore --runtime linux-x64 -property:SelfContained=true Framework/ChessAsp
+    - name: Build
+      run: dotnet build --runtime linux-x64 -property:SelfContained=true --no-restore Framework/ChessAsp
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: ChessAsp
+        path: Framework/ChessAsp/bin/Debug/net5.0/linux-x64
