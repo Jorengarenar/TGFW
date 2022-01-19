@@ -20,7 +20,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore Framework/ChessAsp
     - name: Build
-      run: dotnet build -property:SelfContained=true --no-restore Framework/ChessAsp
+      run: dotnet build --runtime linux-x64 -property:SelfContained=true --no-restore Framework/ChessAsp
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
