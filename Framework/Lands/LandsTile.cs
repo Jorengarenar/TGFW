@@ -16,7 +16,6 @@ namespace Lands {
     // 4
 
     internal class LandsTile : Tile {
-
         public LandsTile(PieceType upper, PieceType left, PieceType central, PieceType right, PieceType lower) {
             Pieces.Add(new LandsPiece(upper));
             Pieces.Add(new LandsPiece(left));
@@ -32,6 +31,5 @@ namespace Lands {
             }
             return new LandsTile(GetRandom(), GetRandom(), GetRandom(), GetRandom(), GetRandom());
         }
-
     }
 }

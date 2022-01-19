@@ -21,6 +21,5 @@ namespace ChessAsp.Pieces
             IsCorrect = isCorrect;
             IsCapture = isCapture;
         }
-
     }
 }

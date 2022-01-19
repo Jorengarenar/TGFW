@@ -9,7 +9,6 @@ using ChessAsp.Pieces;
 
 namespace ChessAsp {
     public class ChessGame : Game {
-
         public ChessGame() {
             this.Board = new Board(8, 8);
             InitializeBoard();
@@ -70,6 +69,5 @@ namespace ChessAsp {
                 this.Board.GetTile(i, pawnsIndex).Pieces.Add(new Pawn(color));
             }
         }
-
     }
 }

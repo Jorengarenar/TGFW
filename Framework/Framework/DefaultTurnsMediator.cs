@@ -6,7 +6,6 @@
 
 namespace Framework {
     public class DefaultTurnsMediator : TurnsMediator {
-
         public DefaultTurnsMediator(Handler handler, IsWon isWon, Won won) {
             this.handler = handler;
             this.isWon = isWon;

@@ -6,7 +6,6 @@
 
 namespace Framework {
     public abstract class Player {
-
         protected TurnsMediator turnsMediator;
 
         public int id;

@@ -11,7 +11,6 @@ using static Lands.LandsPiece;
 
 namespace Lands {
     class Lands : Game {
-
         internal List<LandsTile> availableTiles = new List<LandsTile>();
         internal readonly LandsTile blank = new LandsTile(PieceType.Blank, PieceType.Blank, PieceType.Blank, PieceType.Blank, PieceType.Blank);
         internal IUserInterface userInterface;
@@ -69,6 +68,5 @@ namespace Lands {
             }
             return true;
         }
-
     }
 }
