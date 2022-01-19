@@ -3,29 +3,70 @@
 namespace Framework {
     public class Board {
 
-        public List<Tile> tiles { get; set; }
-        protected int width;
-        protected int height;
+        public List<Tile> Tiles { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
 
         public Board(int width, int height) { 
-            this.width = width;
-            this.height = height;
-            tiles = new List<Tile>();
+            Width = width;
+            Height = height;
+            Tiles = new List<Tile>();
             for (int i = 0; i < width * height; ++i) { 
-                tiles.Add(new Tile());
+                Tiles.Add(new Tile());
             } 
         }
 
+        public void SetTile(Tile tile, int index) {
+            Tiles[index] = tile;
+        }
+
+        public void SetTile(Tile tile, int x, int y) {
+            Tiles[Height * y + x] = tile;
+        }
+
         public Tile GetTile(int x, int y) {
-            return tiles[width * x + y];
+            return Tiles[Height * y + x];
         }
 
         public int GetWidth() {
-            return width;
+            return Width;
         }
 
         public int GetHeight() { 
-            return height;
+            return Height;
+        }
+
+        public Tile GetTileByCoords (int x, int y)
+        {
+            Tile foundTile = null;
+
+            foreach(var tile in Tiles)
+            {
+                if (tile.coordinate.x == x && tile.coordinate.y == y)
+                {
+                    foundTile = tile;
+                }
+            }
+
+            return foundTile;
+        }
+
+        public Piece GetPieceByCoords (int x, int y)
+        {
+            var tile = GetTileByCoords(x, y);
+
+            if (tile.Pieces.Count == 1)
+            {
+                return tile.Pieces[0];
+            }
+
+            return null;
+        }
+
+        public void UpdatePiecesOnPosition (Coordinate src, Coordinate dst)
+        {
+            GetTileByCoords(dst.x, dst.y).SetPieces(new List<Piece>() { GetPieceByCoords(src.x, src.y) });
+            GetTileByCoords(src.x, src.y).SetPieces(new List<Piece>() { });
         }
     }
 }
