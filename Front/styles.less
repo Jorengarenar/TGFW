@@ -2,6 +2,7 @@ body {
   margin: 0;
   overflow-x: hidden;
   box-sizing: border-box;
+  display: flex;
 }
 
 button {
@@ -19,17 +20,17 @@ button {
 
 nav {
   width: 100%;
-  position: sticky;
-  top: 0;
-  left: 0;
-  text-align: right;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
 }
 
 main {
   & {
-    display: flex;
-    margin: 20px;
+    display: block;
+    margin: 20px auto;
     height: calc(100vh - 2em);
+    width: max-content;
   }
 
   > * {
@@ -87,6 +88,10 @@ ul#gamesList {
       display: grid;
       border: 1px solid black;
       width: min-content;
+    }
+
+    &:empty {
+      display: none;
     }
 
     img {

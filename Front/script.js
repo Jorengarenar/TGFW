@@ -1,19 +1,13 @@
 let game_id;
 let clicked_tile = null;
 
-async function newGame() {
-  const res = await fetch("http://localhost:5000/chess", {
-    method: "POST"
-  });
-  game_id = await res.json();
-  document.querySelector("#gameId").textContent = game_id;
-  drawBoard();
-}
-
-function joinGame() {
-  game_id = prompt();
-  document.querySelector("#gameId").textContent = game_id;
-  drawBoard();
+function updateGameId(id) {
+  if (!id) {
+    return false;
+  }
+  game_id = id;
+  document.querySelector("#gameId").textContent = `Game ID: ${id}`;
+  return true;
 }
 
 async function drawBoard() {
@@ -65,6 +59,17 @@ async function drawBoard() {
   });
 }
 
-function showId() {
-  alert(game_id)
+async function newGame() {
+  const res = await fetch("http://localhost:5000/chess", {
+    method: "POST"
+  });
+  if (updateGameId(await res.json())) {
+    drawBoard();
+  }
+}
+
+function joinGame() {
+  if (updateGameId(prompt())) {
+    drawBoard();
+  }
 }
