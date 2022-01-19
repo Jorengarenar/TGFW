@@ -12,11 +12,13 @@
 <body>
   <main>
       <nav>
+        <div id="gameId"></div>
         <div class="options">
           <button onclick="newGame()">Host new game</button>
           <button onclick="joinGame()">Join game</button>
+          <span class="separator"></span>
+          <button id="resetGame" onclick="resetGame()">Reset game</button>
         </div>
-        <div id="gameId"></div>
       </nav>
     <div id="game">
       <div id="board"></div>

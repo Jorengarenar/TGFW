@@ -59,6 +59,14 @@ async function drawBoard() {
   });
 }
 
+async function resetGame() {
+  const res = await fetch(`http://localhost:5000/chess/${game_id}/reset`);
+  const data = await res.json();
+  if (data) {
+    drawBoard();
+  }
+}
+
 async function newGame() {
   const res = await fetch("http://localhost:5000/chess", {
     method: "POST"

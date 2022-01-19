@@ -19,10 +19,16 @@ button {
 }
 
 nav {
-  width: 100%;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
+  & {
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  #gameId:empty ~ div > #resetGame {
+    display: none;
+  }
 }
 
 main {
@@ -152,4 +158,8 @@ ul#players {
     }
   }
 
+}
+
+.separator {
+  margin: 1em;
 }
