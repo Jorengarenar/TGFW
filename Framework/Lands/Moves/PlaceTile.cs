@@ -1,10 +1,16 @@
+/* SPDX-License-Identifier:  Apache-2.0
+ * Copyright 2021-2022 DawidMoza
+ * Copyright 2021-2022 dolidius
+ * Copyright      2022 Jorengarenar
+ */
+
 using Framework;
 
 namespace Lands {
 
     //tile:availableTileIndex;tileX;tileY
     public class PlaceTile : Move {
-        
+
         public PlaceTile(Game game) : base(game) {}
 
         public override void Make(string command) {

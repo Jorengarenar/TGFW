@@ -1,4 +1,10 @@
-﻿using System.Collections.Generic;
+﻿/* SPDX-License-Identifier:  Apache-2.0
+ * Copyright 2021-2022 DawidMoza
+ * Copyright 2021-2022 dolidius
+ * Copyright      2022 Jorengarenar
+ */
+
+using System.Collections.Generic;
 
 namespace Framework {
     public class Board {
@@ -7,13 +13,13 @@ namespace Framework {
         public int Width { get; set; }
         public int Height { get; set; }
 
-        public Board(int width, int height) { 
+        public Board(int width, int height) {
             Width = width;
             Height = height;
             Tiles = new List<Tile>();
-            for (int i = 0; i < width * height; ++i) { 
+            for (int i = 0; i < width * height; ++i) {
                 Tiles.Add(new Tile());
-            } 
+            }
         }
 
         public void SetTile(Tile tile, int index) {
@@ -32,7 +38,7 @@ namespace Framework {
             return Width;
         }
 
-        public int GetHeight() { 
+        public int GetHeight() {
             return Height;
         }
 

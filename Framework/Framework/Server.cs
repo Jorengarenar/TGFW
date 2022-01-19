@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* SPDX-License-Identifier:  Apache-2.0
+ * Copyright 2021-2022 DawidMoza
+ * Copyright 2021-2022 dolidius
+ * Copyright      2022 Jorengarenar
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -37,7 +43,7 @@ namespace Framework {
 
         public abstract string Routing(string request);
 
-        public static string ToJson(object obj) { 
+        public static string ToJson(object obj) {
             return JsonSerializer.Serialize(obj);
         }
     }

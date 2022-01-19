@@ -1,13 +1,19 @@
-﻿using System;
+﻿/* SPDX-License-Identifier:  Apache-2.0
+ * Copyright 2021-2022 DawidMoza
+ * Copyright 2021-2022 dolidius
+ * Copyright      2022 Jorengarenar
+ */
+
+using System;
 using System.Linq;
 using Framework;
 using static Lands.LandsPiece;
 
 namespace Lands {
 
-    // 0 
+    // 0
     //123
-    // 4 
+    // 4
 
     internal class LandsTile : Tile {
 
