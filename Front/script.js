@@ -78,7 +78,7 @@ async function newGame() {
 }
 
 function joinGame() {
-  if (updateGameId(prompt())) {
+  if (updateGameId(prompt("Type game ID:"))) {
     drawBoard();
   }
 }
