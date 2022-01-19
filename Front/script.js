@@ -34,9 +34,10 @@ async function drawBoard() {
     tile.dataset.y = tileData.coordinate.y;
 
     tile.onclick = function() {
-      console.log(clicked_tile);
       if (!clicked_tile) {
-        clicked_tile = this;
+        if (this.parentElement.dataset.piece) {
+          clicked_tile = this;
+        }
         return;
       }
       const X = this.dataset.x;
