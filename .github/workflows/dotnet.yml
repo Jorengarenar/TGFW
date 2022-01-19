@@ -18,9 +18,9 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      run: dotnet restore Framework
+      run: dotnet restore Framework/ChessAsp
     - name: Build
-      run: dotnet build --no-restore Framework
+      run: dotnet build --no-restore Framework/ChessAsp
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
