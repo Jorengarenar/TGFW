@@ -10,19 +10,24 @@ using System.Linq;
 using System.Net;
 using System.Text.Json;
 
-namespace Framework {
-    public abstract class Server {
+namespace Framework
+{
+    public abstract class Server
+    {
         private string generalPrefix = "http://*:29173";
         private List<string> prefixes;
 
-        public Server(string serverName, List<string> prefixes) {
+        public Server(string serverName, List<string> prefixes)
+        {
             generalPrefix += $"/{serverName}";
             this.prefixes = prefixes;
             RunHttpListener();
         }
 
-        private void RunHttpListener() {
-            while (true) {
+        private void RunHttpListener()
+        {
+            while (true)
+            {
                 string responseString = "";
                 HttpListener listener = new HttpListener();
                 prefixes.ForEach(x => listener.Prefixes.Add($"{generalPrefix}/{x}/"));
@@ -42,7 +47,8 @@ namespace Framework {
 
         public abstract string Routing(string request);
 
-        public static string ToJson(object obj) {
+        public static string ToJson(object obj)
+        {
             return JsonSerializer.Serialize(obj);
         }
     }

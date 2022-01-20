@@ -6,8 +6,10 @@
 
 using System.Collections.Generic;
 
-namespace Framework {
-    public abstract class TurnsMediator {
+namespace Framework
+{
+    public abstract class TurnsMediator
+    {
         public int waitingFor = 0;
         public readonly List<Player> players = new List<Player>();
 

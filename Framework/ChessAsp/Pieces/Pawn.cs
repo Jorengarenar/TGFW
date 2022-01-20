@@ -12,9 +12,11 @@ using Framework;
 
 namespace ChessAsp.Pieces
 {
-    public class Pawn: Piece, IChessPiece
+    public class Pawn : Piece, IChessPiece
     {
-        public string Color { get; set; }
+        public string Color {
+            get; set;
+        }
 
         public Pawn(string color)
         {

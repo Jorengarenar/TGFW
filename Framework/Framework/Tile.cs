@@ -6,14 +6,23 @@
 
 using System.Collections.Generic;
 
-namespace Framework {
-    public class Tile {
-        public string TexturePath { get; set; }
+namespace Framework
+{
+    public class Tile
+    {
+        public string TexturePath {
+            get; set;
+        }
 
-        public List<Piece> Pieces { get; set; }
-        public Coordinate coordinate { get; set; } = new Coordinate(0, 0);
+        public List<Piece> Pieces {
+            get; set;
+        }
+        public Coordinate coordinate {
+            get; set;
+        } = new Coordinate(0, 0);
 
-        public Tile() {
+        public Tile()
+        {
             Pieces = new List<Piece>();
         }
 
