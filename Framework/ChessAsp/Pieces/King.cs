@@ -133,7 +133,9 @@ namespace ChessAsp.Pieces
 
             string[] checkingPieces = new string[] { "brook", "bqueen" };
 
-            if (Color == "black") { checkingPieces = new string[] { "wrook", "wqueen" } }
+            if (Color == "black") {
+                checkingPieces = new string[] { "wrook", "wqueen" };
+            }
 
             //up
             for (int i = Coordinates.y + 1; i < 8; i++)
@@ -212,7 +214,9 @@ namespace ChessAsp.Pieces
 
             string[] checkingPieces = new string[] { "bbishop", "bqueen" };
 
-            if (Color == "black") { checkingPieces = new string[] { "wbishop", "wqueen" } }
+            if (Color == "black") {
+                checkingPieces = new string[] { "wbishop", "wqueen" };
+            }
 
             //right bottom
             for (int x = Coordinates.x + 1, y = Coordinates.y - 1; x < 8 && y >= 0; x++, y--)
