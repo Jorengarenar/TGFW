@@ -4,9 +4,12 @@
  * Copyright      2022 Jorengarenar
  */
 
-namespace Simple {
-    internal class Program {
-        static void Main(string[] args) {
+namespace Simple
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
             Simple simple = new Simple();
         }
     }

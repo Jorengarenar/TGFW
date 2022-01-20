@@ -7,9 +7,12 @@
 using Framework;
 using ChessAsp.Pieces;
 
-namespace ChessAsp {
-    public class ChessGame : Game {
-        public ChessGame() {
+namespace ChessAsp
+{
+    public class ChessGame : Game
+    {
+        public ChessGame()
+        {
             this.Board = new Board(8, 8);
             InitializeBoard();
             SetDefaultPosition();

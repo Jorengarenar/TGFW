@@ -4,13 +4,18 @@
  * Copyright      2022 Jorengarenar
  */
 
-namespace Framework {
-    public class Piece {
-        public string Name { get; set; }
+namespace Framework
+{
+    public class Piece
+    {
+        public string Name {
+            get; set;
+        }
 
-        public Piece () { }
+        public Piece()
+        {}
 
-        public Piece (string name)
+        public Piece(string name)
         {
             Name = name;
         }

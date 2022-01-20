@@ -12,11 +12,13 @@ using Framework;
 
 namespace ChessAsp.Pieces
 {
-    public class King: Piece, IChessPiece
+    public class King : Piece, IChessPiece
     {
-        public string Color { get; set; }
+        public string Color {
+            get; set;
+        }
 
-        public King (string color)
+        public King(string color)
         {
             Color = color;
             Name = color[0] + "king";
@@ -25,15 +27,15 @@ namespace ChessAsp.Pieces
         public bool IsMoveCorrect(ChessGame game, Coordinate src, Coordinate dst, string color)
         {
             string prefix = "w";
-            if (color == "black") prefix = "b";
+            if (color == "black") { prefix = "b"; }
             if (   ((src.x == dst.x && (src.y + 1 == dst.y || src.y - 1 == dst.y))
-                || (src.y == dst.y && (src.x + 1 == dst.x || src.x - 1 == dst.x))
-                || (src.x - 1 == dst.x && src.y + 1 == dst.y)
-                || (src.x + 1 == dst.x && src.y + 1 == dst.y)
-                || (src.x + 1 == dst.x && src.y - 1 == dst.y)
-                || (src.x - 1 == dst.x && src.y - 1 == dst.y))
-                && (game.Board.GetPieceByCoords(dst.x, dst.y) == null || !game.Board.GetPieceByCoords(dst.x, dst.y).Name.StartsWith(prefix))
-                )
+                    || (src.y == dst.y && (src.x + 1 == dst.x || src.x - 1 == dst.x))
+                    || (src.x - 1 == dst.x && src.y + 1 == dst.y)
+                    || (src.x + 1 == dst.x && src.y + 1 == dst.y)
+                    || (src.x + 1 == dst.x && src.y - 1 == dst.y)
+                    || (src.x - 1 == dst.x && src.y - 1 == dst.y))
+                   && (game.Board.GetPieceByCoords(dst.x, dst.y) == null || !game.Board.GetPieceByCoords(dst.x, dst.y).Name.StartsWith(prefix))
+            )
             {
                 return true;
             }
@@ -96,7 +98,7 @@ namespace ChessAsp.Pieces
 
             string checkingPiece = "bknight";
 
-            if (Color == "black") checkingPiece = "wknight";
+            if (Color == "black") { checkingPiece = "wknight"; }
 
             checkPossibilities.Add(new Coordinate(Coordinates.x - 2, Coordinates.y + 1));
             checkPossibilities.Add(new Coordinate(Coordinates.x - 1, Coordinates.y + 2));
@@ -131,10 +133,10 @@ namespace ChessAsp.Pieces
 
             string[] checkingPieces = new string[] { "brook", "bqueen" };
 
-            if (Color == "black") checkingPieces = new string[] { "wrook", "wqueen" };
+            if (Color == "black") { checkingPieces = new string[] { "wrook", "wqueen" } }
 
             //up
-            for (int i = Coordinates.y + 1; i < 8; i ++)
+            for (int i = Coordinates.y + 1; i < 8; i++)
             {
                 var tile = Game.Board.GetTileByCoords(Coordinates.x, i);
 
@@ -210,10 +212,10 @@ namespace ChessAsp.Pieces
 
             string[] checkingPieces = new string[] { "bbishop", "bqueen" };
 
-            if (Color == "black") checkingPieces = new string[] { "wbishop", "wqueen" };
+            if (Color == "black") { checkingPieces = new string[] { "wbishop", "wqueen" } }
 
             //right bottom
-            for (int x = Coordinates.x + 1, y = Coordinates.y - 1; x < 8 && y >= 0; x ++, y --)
+            for (int x = Coordinates.x + 1, y = Coordinates.y - 1; x < 8 && y >= 0; x++, y--)
             {
                 var tile = Game.Board.GetTileByCoords(x, y);
 
@@ -292,7 +294,7 @@ namespace ChessAsp.Pieces
         static Coordinate GetKingCoords (ChessGame game, string Color)
         {
             string prefix = "w";
-            if (Color == "black") prefix = "b";
+            if (Color == "black") { prefix = "b"; }
 
             foreach (var tile in game.Board.Tiles)
             {
@@ -305,4 +307,4 @@ namespace ChessAsp.Pieces
             return null;
         }
     }
-}
+} // namespace ChessAsp.Pieces

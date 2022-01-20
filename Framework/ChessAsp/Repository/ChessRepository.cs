@@ -29,7 +29,8 @@ namespace ChessAsp.Repository
             {
                 var game = games[id];
                 return game;
-            } catch
+            }
+            catch
             {
                 return null;
             }

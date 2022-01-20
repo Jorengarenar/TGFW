@@ -13,10 +13,15 @@ namespace ChessAsp.Pieces
 {
     public class MoveResult
     {
-        public bool IsCorrect { get; set; }
-        public bool IsCapture { get; set; }
+        public bool IsCorrect {
+            get; set;
+        }
 
-        public MoveResult (bool isCorrect, bool isCapture)
+        public bool IsCapture {
+            get; set;
+        }
+
+        public MoveResult(bool isCorrect, bool isCapture)
         {
             IsCorrect = isCorrect;
             IsCapture = isCapture;
