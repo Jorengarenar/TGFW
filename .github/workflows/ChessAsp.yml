@@ -2,9 +2,9 @@ name: ChessAsp
 
 on:
   push:
-    branches: [ master ]
+    branches: [ wip-build_automation ]
   pull_request:
-    branches: [ master ]
+    branches: [ wip-build_automation ]
 
 jobs:
   build:
@@ -17,11 +17,18 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      run: dotnet restore --runtime linux-x64 -property:SelfContained=true Framework/ChessAsp
-    - name: Build
+      run: dotnet restore -property:SelfContained=true Framework/ChessAsp
+    - name: Build for Linux
       run: dotnet build --runtime linux-x64 -property:SelfContained=true --no-restore Framework/ChessAsp
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
         name: ChessAsp
         path: Framework/ChessAsp/bin/Debug/net5.0/linux-x64
+    - name: Build for Windows
+      run: dotnet build --runtime win10-x64 -property:SelfContained=true --no-restore Framework/ChessAsp
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: ChessAsp
+        path: Framework/ChessAsp/bin/Debug/net5.0/win10-x64
