@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* SPDX-License-Identifier:  Apache-2.0
+ * Copyright 2021-2022 DawidMoza
+ * Copyright 2021-2022 dolidius
+ * Copyright      2022 Jorengarenar
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,9 +12,11 @@ using Framework;
 
 namespace ChessAsp.Pieces
 {
-    public class Rook: Piece, IChessPiece
+    public class Rook : Piece, IChessPiece
     {
-        public string Color { get; set; }
+        public string Color {
+            get; set;
+        }
 
         public Rook(string color)
         {
@@ -19,7 +27,7 @@ namespace ChessAsp.Pieces
         public bool IsMoveCorrect(ChessGame game, Coordinate src, Coordinate dst, string color)
         {
             string prefix = "w";
-            if (color == "black") prefix = "b";
+            if (color == "black") { prefix = "b"; }
             bool result = false;
             //up
             for (int i = src.y + 1; i < 8; i++)
@@ -108,4 +116,4 @@ namespace ChessAsp.Pieces
             return result;
         }
     }
-}
+} // namespace ChessAsp.Pieces

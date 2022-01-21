@@ -1,3 +1,8 @@
+<!-- SPDX-License-Identifier:  Apache-2.0
+  -- Copyright 2021-2022 Jorengarenar
+  -- Copyright      2021 dolidius
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,45 +11,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TGFW</title>
   <link rel="stylesheet/less" type="text/css" href="styles.less">
-  <script src="https://cdn.jsdelivr.net/npm/less@4.1.1" ></script>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <script src="https://cdn.jsdelivr.net/npm/less@4.1.1"></script>
+  <script src="script.js"></script>
 </head>
 <body>
-  <nav> <button>Logout</button> </nav>
   <main>
-    <ul id="gamesList"></ul>
-    <div id="game">
+    <nav>
+      <div id="gameId"></div>
       <div class="options">
-        <button>New Game</button>
+        <button onclick="newGame()">Host new game</button>
+        <button onclick="joinGame()">Join game</button>
+        <span class="separator"></span>
+        <button id="resetGame" onclick="resetGame()">Reset game</button>
       </div>
-
-      <div class="board">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Chess_Board.svg" />
-      </div>
-
-      <div id="pieces">
-        <img src="https://thumbs.dreamstime.com/b/vector-outline-queen-chess-icon-white-background-176235459.jpg">
-        <img src="https://thumbs.dreamstime.com/b/vector-outline-queen-chess-icon-white-background-176235459.jpg">
-        <img src="https://thumbs.dreamstime.com/b/vector-outline-queen-chess-icon-white-background-176235459.jpg">
-      </div>
+    </nav>
+    <div id="game">
+      <div id="board"></div>
+      <div id="pieces"></div>
     </div>
-    <ul id="players">
-      <li class="player user">
-        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" />
-        <div>
-          <b>Me!Me!Me!</b><br>
-          <span>100 pkt</span>
-        </div>
-      </li>
-      <li class="player">
-        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" />
-        <div>
-          <b>Player 2</b><br>
-          <span>100 pkt</span>
-        </div>
-      </li>
-    </ul>
   </main>
-  <script src="./scripts/script.js"></script>
 </body>
 </html>
 

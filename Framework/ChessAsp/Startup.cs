@@ -1,3 +1,9 @@
+/* SPDX-License-Identifier:  Apache-2.0
+ * Copyright 2021-2022 DawidMoza
+ * Copyright 2021-2022 dolidius
+ * Copyright      2022 Jorengarenar
+ */
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -21,16 +27,19 @@ namespace ChessAsp
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        public IConfiguration Configuration {
+            get;
+        }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Chess", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo {
+                    Title = "Chess", Version = "v1"
+                });
             });
 
             services.AddCors(c =>
@@ -48,7 +57,7 @@ namespace ChessAsp
 
             app.UseHttpsRedirection();
 
-            app.UseCors(options => options.AllowAnyOrigin());  
+            app.UseCors(options => options.AllowAnyOrigin());
 
             app.UseRouting();
 

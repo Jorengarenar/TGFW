@@ -1,10 +1,18 @@
-﻿using Framework;
+﻿/* SPDX-License-Identifier:  Apache-2.0
+ * Copyright 2021-2022 DawidMoza
+ * Copyright 2021-2022 dolidius
+ * Copyright      2022 Jorengarenar
+ */
+
+using Framework;
 using ChessAsp.Pieces;
 
-namespace ChessAsp {
-    public class ChessGame : Game {
-
-        public ChessGame() {
+namespace ChessAsp
+{
+    public class ChessGame : Game
+    {
+        public ChessGame()
+        {
             this.Board = new Board(8, 8);
             InitializeBoard();
             SetDefaultPosition();
@@ -17,13 +25,13 @@ namespace ChessAsp {
                 for (int j = 0; j < 8; ++j)
                 {
                     Tile temp = this.Board.GetTile(i, j);
-                    if ((i * 8 + j) % 2 == 0)
+                    if ((i + j) % 2 == 0)
                     {
-                        temp.TexturePath = "img/chess/lightTile.png";
+                        temp.TexturePath = "img/chess/darkTile.png";
                     }
                     else
                     {
-                        temp.TexturePath = "img/chess/darkTile.png";
+                        temp.TexturePath = "img/chess/lightTile.png";
                     }
 
                     temp.SetCoordinates(i, j);
@@ -64,6 +72,5 @@ namespace ChessAsp {
                 this.Board.GetTile(i, pawnsIndex).Pieces.Add(new Pawn(color));
             }
         }
-
     }
 }

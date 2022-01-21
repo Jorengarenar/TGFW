@@ -1,14 +1,28 @@
-﻿using System.Collections.Generic;
+﻿/* SPDX-License-Identifier:  Apache-2.0
+ * Copyright 2021-2022 DawidMoza
+ * Copyright 2021-2022 dolidius
+ * Copyright      2022 Jorengarenar
+ */
 
-namespace Framework {
-    public class Tile {
+using System.Collections.Generic;
 
-        public string TexturePath { get; set; }
+namespace Framework
+{
+    public class Tile
+    {
+        public string TexturePath {
+            get; set;
+        }
 
-        public List<Piece> Pieces { get; set; }
-        public Coordinate coordinate { get; set; } = new Coordinate(0, 0);
+        public List<Piece> Pieces {
+            get; set;
+        }
+        public Coordinate coordinate {
+            get; set;
+        } = new Coordinate(0, 0);
 
-        public Tile() {
+        public Tile()
+        {
             Pieces = new List<Piece>();
         }
 

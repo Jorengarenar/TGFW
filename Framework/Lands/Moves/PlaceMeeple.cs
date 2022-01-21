@@ -1,7 +1,12 @@
+/* SPDX-License-Identifier:  Apache-2.0
+ * Copyright 2021-2022 DawidMoza
+ * Copyright 2021-2022 dolidius
+ * Copyright      2022 Jorengarenar
+ */
+
 using Framework;
 
 namespace Lands {
-
     //meeple:pieceIndex;tileX;tileY;ownerId
     public class PlaceMeeple : Move {
         public PlaceMeeple(Game game) : base(game) { }

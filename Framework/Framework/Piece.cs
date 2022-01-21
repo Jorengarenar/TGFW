@@ -1,16 +1,23 @@
-﻿namespace Framework {
-    public class Piece {
-        public string Name { get; set; }
+﻿/* SPDX-License-Identifier:  Apache-2.0
+ * Copyright 2021-2022 DawidMoza
+ * Copyright 2021-2022 dolidius
+ * Copyright      2022 Jorengarenar
+ */
 
-        public Piece ()
-        {
-
+namespace Framework
+{
+    public class Piece
+    {
+        public string Name {
+            get; set;
         }
 
-        public Piece (string name)
+        public Piece()
+        {}
+
+        public Piece(string name)
         {
             Name = name;
         }
-
     }
 }
