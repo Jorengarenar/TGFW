@@ -19,8 +19,8 @@ namespace Lands {
             int y = int.Parse(content[2]);
             if (x >= 0 && x < game.Board.GetWidth() && y >= 0 && y < game.Board.GetHeight()) {
                 if (lands.Board.GetTile(x, y) == lands.blank) {
-                    lands.Board.SetTile(lands.availableTiles[tileIndex], x, y);
-                    lands.availableTiles.RemoveAt(tileIndex);
+                    lands.Board.SetTile(lands.AvailableTiles[tileIndex], x, y);
+                    lands.AvailableTiles.RemoveAt(tileIndex);
                 }
             }
         }

@@ -10,6 +10,10 @@ namespace Framework
 {
     public abstract class TurnsMediator
     {
+        public enum Mediators { 
+            Default, Web
+        }
+
         public int waitingFor = 0;
         public readonly List<Player> players = new List<Player>();
 

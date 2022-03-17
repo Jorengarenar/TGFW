@@ -7,11 +7,11 @@
 using System;
 
 namespace Lands {
-    internal class LandsPlayerData {
+    public class LandsPlayerData {
         public string name;
         public ConsoleColor color;
 
-        public LandsPlayerData(string name, ConsoleColor color) {
+        public LandsPlayerData(string name, ConsoleColor color = ConsoleColor.White) {
             this.name = name;
             this.color = color;
         }

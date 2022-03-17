@@ -9,6 +9,7 @@ namespace Lands.UserInterfaces {
         public static IUserInterface CreateUserInterface(string interfaceType) {
             return interfaceType switch {
                 "console" => new ConsoleUserInterface(),
+                "web" => new WebUserInterface(),
                 _ => null,
             };
         }

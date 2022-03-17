@@ -5,7 +5,7 @@
  */
 
 namespace Lands {
-    internal class Meeple {
+    public class Meeple {
         public LandsPlayer owner;
 
         public Meeple(LandsPlayer owner) {
