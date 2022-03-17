@@ -17,7 +17,7 @@ namespace Framework
         public List<Piece> Pieces {
             get; set;
         }
-        public Coordinate coordinate {
+        public Coordinate Coordinate {
             get; set;
         } = new Coordinate(0, 0);
 
@@ -28,8 +28,8 @@ namespace Framework
 
         public void SetCoordinates (int x, int y)
         {
-            coordinate.x = x;
-            coordinate.y = y;
+            Coordinate.x = x;
+            Coordinate.y = y;
         }
 
         public void SetPieces (List<Piece> pieces)

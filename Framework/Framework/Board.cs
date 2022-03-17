@@ -62,7 +62,7 @@ namespace Framework
 
             foreach (var tile in Tiles)
             {
-                if (tile.coordinate.x == x && tile.coordinate.y == y)
+                if (tile.Coordinate.x == x && tile.Coordinate.y == y)
                 {
                     foundTile = tile;
                 }

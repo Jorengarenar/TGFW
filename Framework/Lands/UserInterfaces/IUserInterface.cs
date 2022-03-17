@@ -8,7 +8,7 @@ using Framework;
 using System.Collections.Generic;
 
 namespace Lands {
-    internal interface IUserInterface {
+    public interface IUserInterface {
         public List<LandsPlayerData> GetPlayersData();
         public int GetBoardWidth();
         public int GetBoardHeight();

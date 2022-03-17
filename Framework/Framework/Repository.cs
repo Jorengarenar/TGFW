@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Framework {
     public class Repository {
 
-        private Dictionary<string, Game> games = new Dictionary<string,Game>();
+        private Dictionary<string, Game> games = new Dictionary<string, Game>();
 
         public Game Get(string id) {
             if (games.ContainsKey(id)) {
@@ -17,7 +17,10 @@ namespace Framework {
             if (item == null) {
                 throw new ArgumentNullException("item");
             }
-            string id = Utils.GetRandomString(128);
+            string id = Utils.GetRandomString(8);
+            while (games.ContainsKey(id)) { 
+                id = Utils.GetRandomString(8);
+            }
             games.Add(id, item);
             return id;
         }

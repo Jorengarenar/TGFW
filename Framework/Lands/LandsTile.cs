@@ -15,7 +15,7 @@ namespace Lands {
     //123
     // 4
 
-    internal class LandsTile : Tile {
+    public class LandsTile : Tile {
         public LandsTile(PieceType upper, PieceType left, PieceType central, PieceType right, PieceType lower) {
             Pieces.Add(new LandsPiece(upper));
             Pieces.Add(new LandsPiece(left));

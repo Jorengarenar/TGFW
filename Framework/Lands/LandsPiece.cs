@@ -7,7 +7,7 @@
 using Framework;
 
 namespace Lands {
-    internal class LandsPiece : Piece {
+    public class LandsPiece : Piece {
         public Meeple meeple;
         public PieceType type;
 
