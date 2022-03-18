@@ -12,8 +12,7 @@ namespace Framework
             get; set;
         }
 
-        public Piece()
-        {}
+        public Piece() {}
 
         public Piece(string name)
         {
