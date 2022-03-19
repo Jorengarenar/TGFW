@@ -14,7 +14,7 @@ namespace Lands {
     internal class ConsoleUserInterface : IUserInterface {
         public List<LandsPlayerData> GetPlayersData() {
             List<LandsPlayerData> data = new List<LandsPlayerData>();
-            ConsoleColor[] colors = (ConsoleColor[]) Enum.GetValues(typeof(ConsoleColor)).Cast<ConsoleColor>()
+            ConsoleColor[] colors = Enum.GetValues(typeof(ConsoleColor)).Cast<ConsoleColor>()
                 .Where(x => x != ConsoleColor.Black && x != ConsoleColor.White)
                 .ToArray();
             int maxPlayers = colors.Length;
@@ -37,14 +37,14 @@ namespace Lands {
         public void DrawResults(List<int> results, List<Player> players) {
             Console.WriteLine("Results:");
             for (int i = 0; i < results.Count; ++i) {
-                Console.WriteLine($"{players[i].name}: {results[i]}");
+                Console.WriteLine($"{players[i].Name}: {results[i]}");
             }
         }
 
         public string GetCommand(LandsPlayer player) {
             ConsoleColor oldColor = Console.BackgroundColor;
             Console.BackgroundColor = player.consoleColor;
-            Console.WriteLine($"{player.name} command: ");
+            Console.WriteLine($"{player.Name} command: ");
             Console.BackgroundColor = oldColor;
             return Console.ReadLine();
         }
@@ -120,15 +120,15 @@ namespace Lands {
 
         private void DrawPiece(LandsPiece landsPiece) {
             ConsoleColor oldColor = Console.BackgroundColor;
-            if (landsPiece.meeple != null) {
-                Console.BackgroundColor = landsPiece.meeple.owner.consoleColor;
+            if (landsPiece.Meeple != null) {
+                Console.BackgroundColor = landsPiece.Meeple.Owner.consoleColor;
             }
             Console.Write(PieceCode(landsPiece));
             Console.BackgroundColor = oldColor;
         }
 
         private char PieceCode(LandsPiece landsPiece) {
-            return landsPiece.type switch {
+            return landsPiece.Type switch {
                 PieceType.Road => 'R',
                 PieceType.Grass => 'G',
                 PieceType.City => 'C',

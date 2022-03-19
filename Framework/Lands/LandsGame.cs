@@ -11,9 +11,9 @@ using static Lands.LandsPiece;
 
 namespace Lands {
     public class LandsGame : Game {
-        public List<LandsTile> AvailableTiles {
-            get; set;
-        }
+        public List<LandsTile> AvailableTiles { get; set; }
+
+        public List<int> Results { get; set; }
 
         internal readonly LandsTile blank = new LandsTile(PieceType.Blank, PieceType.Blank, PieceType.Blank, PieceType.Blank, PieceType.Blank);
         internal IUserInterface userInterface;
@@ -32,6 +32,7 @@ namespace Lands {
             for (int i = 0; i < players.Count; ++i) {
                 this.turnsMediator.AddPlayer(new LandsPlayer(this.turnsMediator, i, players[i].name, players[i].color, userInterface));
             }
+            Results = turnsMediator.players.Select(x => 0).ToList();
             this.Board = new Board(boardWidth, boardHeight);
             for (int i = 0; i < Board.GetHeight() * Board.GetWidth(); ++i) {
                 Board.SetTile(blank, i);
@@ -59,21 +60,20 @@ namespace Lands {
             userInterface.DrawRound(this.Board, this.AvailableTiles);
         }
 
-        private void Won() {
+        public void Won() {
             userInterface.DrawRound(this.Board, this.AvailableTiles);
-            List<int> results = turnsMediator.players.Select(x => 0).ToList();
             foreach (LandsTile tile in Board.Tiles) {
                 foreach (LandsPiece piece in tile.Pieces) {
-                    results[piece.meeple.owner.id] += (int) piece.type;
+                    Results[piece.Meeple.Owner.Id] += (int) piece.Type;
                 }
             }
-            userInterface.DrawResults(results, turnsMediator.players);
+            userInterface.DrawResults(Results, turnsMediator.players);
         }
 
-        private bool IsWon() {
+        public bool IsWon() {
             foreach (LandsTile tile in Board.Tiles) {
                 foreach (LandsPiece piece in tile.Pieces) {
-                    if (piece.meeple == null) {
+                    if (piece.Meeple == null) {
                         return false;
                     }
                 }
