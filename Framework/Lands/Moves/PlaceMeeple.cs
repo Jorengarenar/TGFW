@@ -20,8 +20,8 @@ namespace Lands {
             if (x >= 0 && x < game.Board.GetWidth() && y >= 0 && y < game.Board.GetHeight()) {
                 LandsTile landsTile = (LandsTile) game.Board.GetTile(x, y);
                 LandsPiece landsPiece = (LandsPiece) landsTile.Pieces[pieceIndex];
-                if (landsPiece.meeple == null && landsPiece.type != LandsPiece.PieceType.Blank) {
-                    LandsPiece.PieceType pieceType = landsPiece.type;
+                if (landsPiece.Meeple == null && landsPiece.Type != LandsPiece.PieceType.Blank) {
+                    LandsPiece.PieceType pieceType = landsPiece.Type;
                     landsPiece.SetMeeple(new Meeple((LandsPlayer) game.turnsMediator.players[ownerId]));
                     MakeOthers(x, y, pieceIndex, ownerId, pieceType, game.Board);
                 }
@@ -87,7 +87,7 @@ namespace Lands {
             if (x >= 0 && x < board.GetWidth() && y >= 0 && y < board.GetHeight()) {
                 LandsTile landsTile = (LandsTile) board.GetTile(x, y);
                 LandsPiece landsPiece = (LandsPiece) landsTile.Pieces[pieceIndex];
-                if (landsPiece.meeple == null && landsPiece.type == pieceType) {
+                if (landsPiece.Meeple == null && landsPiece.Type == pieceType) {
                     return true;
                 }
                 return false;

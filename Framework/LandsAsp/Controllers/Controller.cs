@@ -13,14 +13,19 @@ namespace LandsAsp.Controllers {
         private static readonly Repository repository = new Repository();
 
         [HttpGet("get")]
-        public LandsGame Get(string id) {
-            return (LandsGame) repository.Get(id);
+        public LandsData Get(string id) {
+            LandsGame game = (LandsGame) repository.Get(id);
+            return new LandsData(game.Board, game.AvailableTiles, game.turnsMediator.waitingFor);
         }
 
-        [HttpGet("waiting")]
-        public int WaitingFor(string id) {
+        [HttpGet("results")]
+        public List<int> Results(string id) {
             LandsGame game = (LandsGame) repository.Get(id);
-            return game.turnsMediator.waitingFor;
+            if (game.IsWon()) {
+                return game.Results;
+            } else {
+                return null;
+            }
         }
 
         [HttpPost("create")]

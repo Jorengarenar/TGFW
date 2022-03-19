@@ -10,10 +10,6 @@ namespace Framework
 {
     public class Tile
     {
-        public string TexturePath {
-            get; set;
-        }
-
         public List<Piece> Pieces {
             get; set;
         }

@@ -6,10 +6,10 @@
 
 namespace Lands {
     public class Meeple {
-        public LandsPlayer owner;
+        public LandsPlayer Owner { get; set; }
 
         public Meeple(LandsPlayer owner) {
-            this.owner = owner;
+            this.Owner = owner;
         }
     }
 }

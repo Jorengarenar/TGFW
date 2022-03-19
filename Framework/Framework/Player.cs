@@ -8,16 +8,16 @@ namespace Framework
 {
     public abstract class Player
     {
-        protected TurnsMediator turnsMediator;
+        public int Id { get; set; }
+        public string Name { get; set; }
 
-        public int id;
-        public string name;
+        protected TurnsMediator turnsMediator;
 
         public Player(TurnsMediator turnsMediator, int id, string name)
         {
             this.turnsMediator = turnsMediator;
-            this.id = id;
-            this.name = name;
+            this.Id = id;
+            this.Name = name;
         }
 
         public abstract void Move();
