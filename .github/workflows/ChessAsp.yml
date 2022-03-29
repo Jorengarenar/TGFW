@@ -17,16 +17,16 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Build for Linux
-      run: dotnet build --runtime linux-x64 -property:SelfContained=true Framework/ChessAsp
+      run: dotnet build --runtime linux-x64 -property:SelfContained=true Back/ChessAsp
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
         name: ChessAsp_linux
-        path: Framework/ChessAsp/bin/Debug/net5.0/linux-x64
+        path: Back/ChessAsp/bin/Debug/net5.0/linux-x64
     - name: Build for Windows
-      run: dotnet build --runtime win10-x64 -property:SelfContained=true Framework/ChessAsp
+      run: dotnet build --runtime win10-x64 -property:SelfContained=true Back/ChessAsp
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
         name: ChessAsp_win
-        path: Framework/ChessAsp/bin/Debug/net5.0/win10-x64
+        path: Back/ChessAsp/bin/Debug/net5.0/win10-x64
