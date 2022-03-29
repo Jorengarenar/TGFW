@@ -3,20 +3,23 @@
  * Copyright      2021 dolidius
  */
 
-let game_id;
-let clicked_tile = null;
+let GAME_ID;
+let CLICKED_TILE = null;
+
+const SERVER_URL = "http://localhost:5000"
+const GAME = "chess"
 
 function updateGameId(id) {
   if (!id) {
     return false;
   }
-  game_id = id;
+  GAME_ID = id;
   document.querySelector("#gameId").textContent = `Game ID: ${id}`;
   return true;
 }
 
 async function drawBoard() {
-  const res = await fetch(`http://localhost:5000/chess/${game_id}`)
+  const res = await fetch(`${SERVER_URL}/${GAME}/${GAME_ID}`)
   const data = await res.json();
 
   const boardDiv = document.querySelector("#board");
@@ -39,18 +42,18 @@ async function drawBoard() {
     tile.dataset.y = tileData.coordinate.y;
 
     tile.onclick = function() {
-      if (!clicked_tile) {
+      if (!CLICKED_TILE) {
         if (this.parentElement.dataset.piece) {
-          clicked_tile = this;
+          CLICKED_TILE = this;
         }
         return;
       }
       const X = this.dataset.x;
       const Y = this.dataset.y;
-      const x = clicked_tile.dataset.x;
-      const y = clicked_tile.dataset.y;
-      clicked_tile = null;
-      fetch(`http://localhost:5000/chess/move/${game_id}/${x}/${y}/${X}/${Y}`, {
+      const x = CLICKED_TILE.dataset.x;
+      const y = CLICKED_TILE.dataset.y;
+      CLICKED_TILE = null;
+      fetch(`${SERVER_URL}/${GAME}/move/${GAME_ID}/${x}/${y}/${X}/${Y}`, {
         method: "POST"
       });
       drawBoard();
@@ -66,7 +69,7 @@ async function drawBoard() {
 }
 
 async function resetGame() {
-  const res = await fetch(`http://localhost:5000/chess/${game_id}/reset`);
+  const res = await fetch(`${SERVER_URL}/${GAME}/${GAME_ID}/reset`);
   const data = await res.json();
   if (data) {
     drawBoard();
@@ -74,7 +77,7 @@ async function resetGame() {
 }
 
 async function newGame() {
-  const res = await fetch("http://localhost:5000/chess", {
+  const res = await fetch("${SERVER_URL}/${GAME}", {
     method: "POST"
   });
   if (updateGameId(await res.json())) {
