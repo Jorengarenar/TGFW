@@ -4,9 +4,6 @@
  * Copyright      2022 Jorengarenar
  */
 
-using System.Collections.Generic;
-using System.Text.Json;
-
 namespace Framework
 {
     public class Game
@@ -16,10 +13,5 @@ namespace Framework
         }
 
         public TurnsMediator turnsMediator;
-
-        public string GameJSON()
-        {
-            return JsonSerializer.Serialize(this);
-        }
     }
 }

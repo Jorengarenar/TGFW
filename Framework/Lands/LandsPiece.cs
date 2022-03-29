@@ -7,9 +7,9 @@
 using Framework;
 
 namespace Lands {
-    internal class LandsPiece : Piece {
-        public Meeple meeple;
-        public PieceType type;
+    public class LandsPiece : Piece {
+        public Meeple Meeple { get; set; }
+        public PieceType Type { get; set; }
 
         public enum PieceType : int {
             City = 15,
@@ -19,12 +19,12 @@ namespace Lands {
         }
 
         public LandsPiece(PieceType pieceType) {
-            this.type = pieceType;
+            this.Type = pieceType;
         }
 
         public void SetMeeple(Meeple meeple) {
-            if (this.meeple == null) {
-                this.meeple = meeple;
+            if (this.Meeple == null) {
+                this.Meeple = meeple;
             }
         }
     }

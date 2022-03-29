@@ -10,25 +10,38 @@ using System.Linq;
 using static Lands.LandsPiece;
 
 namespace Lands {
-    class Lands : Game {
-        internal List<LandsTile> availableTiles = new List<LandsTile>();
+    public class LandsGame : Game {
+        public List<LandsTile> AvailableTiles { get; set; }
+
+        public List<int> Results { get; set; }
+
         internal readonly LandsTile blank = new LandsTile(PieceType.Blank, PieceType.Blank, PieceType.Blank, PieceType.Blank, PieceType.Blank);
         internal IUserInterface userInterface;
 
-        internal Lands(int boardWidth, int boardHeight, List<LandsPlayerData> players, IUserInterface userInterface) {
+        public LandsGame(int boardWidth, int boardHeight, List<LandsPlayerData> players, IUserInterface userInterface, TurnsMediator.Mediators mediator) {
             this.userInterface = userInterface;
-            this.turnsMediator = new DefaultTurnsMediator(Handler, IsWon, Won);
+            switch (mediator) {
+                case TurnsMediator.Mediators.Default:
+                    this.turnsMediator = new DefaultTurnsMediator(Handler, IsWon, Won);
+                    break;
+                case TurnsMediator.Mediators.Web:
+                    this.turnsMediator = new WebTurnsMediator(Handler, IsWon, Won);
+                    break;
+            }
+            
             for (int i = 0; i < players.Count; ++i) {
                 this.turnsMediator.AddPlayer(new LandsPlayer(this.turnsMediator, i, players[i].name, players[i].color, userInterface));
             }
+            Results = turnsMediator.players.Select(x => 0).ToList();
             this.Board = new Board(boardWidth, boardHeight);
             for (int i = 0; i < Board.GetHeight() * Board.GetWidth(); ++i) {
                 Board.SetTile(blank, i);
             }
+            AvailableTiles = new List<LandsTile>();
             for (int i = 0; i < Board.GetHeight() * Board.GetWidth(); ++i) {
-                availableTiles.Add(LandsTile.GenerateRandom());
+                AvailableTiles.Add(LandsTile.GenerateRandom());
             }
-            this.userInterface.DrawRound(this.Board, this.availableTiles);
+            this.userInterface.DrawRound(this.Board, this.AvailableTiles);
             this.turnsMediator.Start();
         }
 
@@ -44,24 +57,23 @@ namespace Lands {
                         break;
                 }
             } catch { }
-            userInterface.DrawRound(this.Board, this.availableTiles);
+            userInterface.DrawRound(this.Board, this.AvailableTiles);
         }
 
-        private void Won() {
-            userInterface.DrawRound(this.Board, this.availableTiles);
-            List<int> results = turnsMediator.players.Select(x => 0).ToList();
+        public void Won() {
+            userInterface.DrawRound(this.Board, this.AvailableTiles);
             foreach (LandsTile tile in Board.Tiles) {
                 foreach (LandsPiece piece in tile.Pieces) {
-                    results[piece.meeple.owner.id] += (int) piece.type;
+                    Results[piece.Meeple.Owner.Id] += (int) piece.Type;
                 }
             }
-            userInterface.DrawResults(results, turnsMediator.players);
+            userInterface.DrawResults(Results, turnsMediator.players);
         }
 
-        private bool IsWon() {
+        public bool IsWon() {
             foreach (LandsTile tile in Board.Tiles) {
                 foreach (LandsPiece piece in tile.Pieces) {
-                    if (piece.meeple == null) {
+                    if (piece.Meeple == null) {
                         return false;
                     }
                 }

@@ -304,7 +304,7 @@ namespace ChessAsp.Pieces
             {
                 if (tile.Pieces.Count == 1 && tile.Pieces[0].Name == prefix + "king")
                 {
-                    return tile.coordinate;
+                    return tile.Coordinate;
                 }
             }
 

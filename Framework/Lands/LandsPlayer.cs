@@ -8,7 +8,8 @@ using Framework;
 using System;
 
 namespace Lands {
-    internal class LandsPlayer : Player {
+    public class LandsPlayer : Player {
+        
         public ConsoleColor consoleColor;
         private IUserInterface userInterface;
 
@@ -18,7 +19,7 @@ namespace Lands {
         }
 
         public override void Move() {
-            turnsMediator.Notify(id, userInterface.GetCommand(this));
+            turnsMediator.Notify(Id, userInterface.GetCommand(this));
         }
     }
 }
