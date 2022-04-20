@@ -43,22 +43,24 @@ class TGFW {
       tile.dataset.x = tileData.coordinate.x;
       tile.dataset.y = tileData.coordinate.y;
 
-      tile.onclick = (el) => {
-        if (!this.CLICKED_TILE) {
-          if (el.parentElement.dataset.piece) {
-            this.CLICKED_TILE = this;
+      // deno-lint-ignore no-this-alias
+      const that = this;
+      tile.onclick = function() {
+        if (!that.CLICKED_TILE) {
+          if (this.parentElement.dataset.piece) {
+            that.CLICKED_TILE = this;
           }
           return;
         }
-        const X = el.dataset.x;
-        const Y = el.dataset.y;
-        const x = this.CLICKED_TILE.dataset.x;
-        const y = this.CLICKED_TILE.dataset.y;
+        const X = this.dataset.x;
+        const Y = this.dataset.y;
+        const x = that.CLICKED_TILE.dataset.x;
+        const y = that.CLICKED_TILE.dataset.y;
         this.CLICKED_TILE = null;
-        fetch(`${this.SERVER_URL}/${this.GAME}/move/${this.GAME_ID}/${x}/${y}/${X}/${Y}`, {
+        fetch(`${that.SERVER_URL}/${that.GAME}/move/${that.GAME_ID}/${x}/${y}/${X}/${Y}`, {
           method: "POST"
         });
-        this.drawBoard();
+        that.drawBoard();
       }
 
       if (tileData.pieces.length) {
