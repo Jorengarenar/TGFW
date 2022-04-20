@@ -58,7 +58,7 @@ class TGFW {
         fetch(`${this.SERVER_URL}/${this.GAME}/move/${this.GAME_ID}/${x}/${y}/${X}/${Y}`, {
           method: "POST"
         });
-        drawBoard();
+        this.drawBoard();
       }
 
       if (tileData.pieces.length) {
@@ -74,7 +74,7 @@ class TGFW {
     const res = await fetch(`${this.SERVER_URL}/${this.GAME}/${this.GAME_ID}/reset`);
     const data = await res.json();
     if (data) {
-      drawBoard();
+      this.drawBoard();
     }
   }
 
@@ -82,14 +82,16 @@ class TGFW {
     const res = await fetch(`${this.SERVER_URL}/${this.GAME}`, {
       method: "POST"
     });
-    if (updateGameId(await res.json())) {
-      drawBoard();
+    if (this.updateGameId(await res.json())) {
+      this.drawBoard();
     }
   }
 
   joinGame() {
-    if (updateGameId(prompt("Type game ID:"))) {
-      drawBoard();
+    if (this.updateGameId(prompt("Type game ID:"))) {
+      this.drawBoard();
     }
   }
 }
+
+// vim: fdl=1
