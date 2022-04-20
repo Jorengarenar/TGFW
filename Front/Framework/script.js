@@ -56,7 +56,7 @@ class TGFW {
         const Y = this.dataset.y;
         const x = that.CLICKED_TILE.dataset.x;
         const y = that.CLICKED_TILE.dataset.y;
-        this.CLICKED_TILE = null;
+        that.CLICKED_TILE = null;
         fetch(`${that.SERVER_URL}/${that.GAME}/move/${that.GAME_ID}/${x}/${y}/${X}/${Y}`, {
           method: "POST"
         });
