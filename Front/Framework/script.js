@@ -79,7 +79,7 @@ class TGFW {
   }
 
   async newGame() {
-    const res = await fetch("${this.SERVER_URL}/${this.GAME}", {
+    const res = await fetch(`${this.SERVER_URL}/${this.GAME}`, {
       method: "POST"
     });
     if (updateGameId(await res.json())) {
