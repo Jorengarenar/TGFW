@@ -43,7 +43,7 @@ class TGFW {
       tile.dataset.x = tileData.coordinate.x;
       tile.dataset.y = tileData.coordinate.y;
 
-      tile.onclick = function(el) {
+      tile.onclick = (el) => {
         if (!this.CLICKED_TILE) {
           if (el.parentElement.dataset.piece) {
             this.CLICKED_TILE = this;
