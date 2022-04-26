@@ -112,16 +112,14 @@ class TGFW {
     // newGameBtn {{{3
     const newGameBtn = newEl("button");
     newGameBtn.id = "newGame";
-    newGameBtn.onclick = () => {
-      this.newGame()
-    };
+    newGameBtn.onclick = () => { this.newGame() };
+    newGameBtn.textContent = "Host new game";
 
     // joinGameBtn {{{3
     const joinGameBtn = newEl("button");
     joinGameBtn.id = "joinGame";
-    joinGameBtn.onclick = () => {
-      this.joinGame()
-    };
+    joinGameBtn.onclick = () => { this.joinGame() };
+    joinGameBtn.textContent = "Join game";
 
     // separator {{{3
     const separator = newEl("span");
@@ -130,9 +128,8 @@ class TGFW {
     // resetGameBtn {{{3
     const resetGameBtn = newEl("button");
     resetGameBtn.id = "resetGame";
-    resetGameBtn.onclick = () => {
-      this.resetGame()
-    };
+    resetGameBtn.onclick = () => { this.resetGame() };
+    resetGameBtn.textContent = "Reset game";
     // }}}3
 
     optionsDiv.append(newGameBtn, joinGameBtn, resetGameBtn);
