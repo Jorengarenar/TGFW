@@ -125,7 +125,7 @@ class TGFW {
 
     // separator {{{3
     const separator = newEl("span");
-    separator.add("separator")
+    separator.classList.add("separator")
 
     // resetGameBtn {{{3
     const resetGameBtn = newEl("button");
