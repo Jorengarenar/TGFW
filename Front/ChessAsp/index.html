@@ -13,25 +13,11 @@
   <link rel="stylesheet/less" type="text/css" href="styles.less">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <script src="https://cdn.jsdelivr.net/npm/less@4.1.1"></script>
-  <script type="text/javascript" src="http://lab.joren.ga/TGFW/Front/Framework/script.js"></script>
+  <script src="http://lab.joren.ga/TGFW/Front/Framework/script.js"></script>
   <script src="script.js"></script>
 </head>
 <body>
-  <main>
-    <nav>
-      <div id="gameId"></div>
-      <div class="options">
-        <button onclick="newGame()">Host new game</button>
-        <button onclick="joinGame()">Join game</button>
-        <span class="separator"></span>
-        <button id="resetGame" onclick="resetGame()">Reset game</button>
-      </div>
-    </nav>
-    <div id="game">
-      <div id="board"></div>
-      <div id="pieces"></div>
-    </div>
-  </main>
+  <main onload="tgfw.initDom(this)"></main>
 </body>
 </html>
 

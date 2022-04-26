@@ -94,6 +94,69 @@ class TGFW {
       this.drawBoard();
     }
   }
+
+  initDom(tgfwDiv) {
+    const newEl = (tag) => {
+      document.createElement(tag)
+    };
+
+    // nav {{{1
+    const nav = newEl("nav");
+
+    // gameIdDiv {{{2
+    const gameIdDiv = newEl("div");
+    gameIdDiv.id = "gameId";
+
+    // optionsDiv {{{2
+    const optionsDiv = newEl("div");
+    optionsDiv.id = "options";
+
+    // newGameBtn {{{3
+    const newGameBtn = newEl("button");
+    newGameBtn.id = "newGame";
+    newGameBtn.onclick = () => {
+      this.newGame()
+    };
+
+    // joinGameBtn {{{3
+    const joinGameBtn = newEl("button");
+    joinGameBtn.id = "joinGame";
+    joinGameBtn.onclick = () => {
+      this.joinGame()
+    };
+
+    // separator {{{3
+    const separator = newEl("span");
+    separator.add("separator")
+
+    // resetGameBtn {{{3
+    const resetGameBtn = newEl("button");
+    resetGameBtn.id = "resetGame";
+    resetGameBtn.onclick = () => {
+      this.resetGame()
+    };
+    // }}}3
+
+    optionsDiv.append(newGameBtn, joinGameBtn, resetGameBtn);
+    // }}}2
+
+    nav.append(gameIdDiv, optionsDiv);
+
+    // gameDiv {{{1
+    const gameDiv = newEl("div");
+
+    const boardDiv = newEl("div");
+    boardDiv.id = "board";
+
+    const piecesDiv = newEl("div");
+    piecesDiv.id = "pieces";
+
+    gameDiv.append(boardDiv, piecesDiv);
+    // }}}1
+
+    tgfwDiv.append(nav, gameDiv);
+
+  }
 }
 
 // vim: fdl=1
