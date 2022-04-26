@@ -3,3 +3,7 @@
  */
 
 const tgfw = new TGFW("chess", "http://localhost:5000");
+
+window.onload = function() {
+  tgfw.initDom(document.querySelector("#newGame"));
+}
