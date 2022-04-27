@@ -42,7 +42,7 @@ class TGFW {
     }
 
     const res = await fetch(url, { method: "POST" });
-    if (this.updateGameId(await res.json())) {
+    if (this.updateGameId(await res.text())) {
       this.drawBoard();
     }
   }
