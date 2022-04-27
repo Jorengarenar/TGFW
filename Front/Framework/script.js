@@ -96,7 +96,7 @@ class TGFW {
   }
 
   initDom() {
-    tgfwDiv = document.querySelector("#TGFW");
+    const tgfwDiv = document.querySelector("#TGFW");
 
     const newEl = (tag) => document.createElement(tag);
 
