@@ -5,6 +5,17 @@
 
 #TGFW {
 
+  & {
+    display: block;
+    margin: 20px auto;
+    height: calc(100vh - 2em);
+    width: max-content;
+  }
+
+  > * {
+    max-height: 95%;
+  }
+
   button {
     background: #222;
     border: none;
@@ -28,19 +39,6 @@
 
     #gameId:empty ~ div > #resetGame {
       display: none;
-    }
-  }
-
-  main {
-    & {
-      display: block;
-      margin: 20px auto;
-      height: calc(100vh - 2em);
-      width: max-content;
-    }
-
-    > * {
-      max-height: 95%;
     }
   }
 
