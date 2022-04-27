@@ -94,6 +94,7 @@ class TGFW {
 
     // gameDiv {{{1
     const gameDiv = newEl("div");
+    gameDiv.id = "game";
 
     const boardDiv = newEl("div");
     boardDiv.id = "board";
