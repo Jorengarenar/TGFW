@@ -56,8 +56,4 @@ class TgfwChess extends TGFW {
   }
 }
 
-const tgfw = new TgfwChess("chess", "http://localhost:5000");
-
-window.onload = function() {
-  tgfw.initDom();
-}
+new TgfwChess("chess", "http://localhost:5000");
