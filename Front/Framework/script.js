@@ -95,7 +95,9 @@ class TGFW {
     }
   }
 
-  initDom(tgfwDiv) {
+  initDom() {
+    tgfwDiv = document.querySelector("#TGFW");
+
     const newEl = (tag) => document.createElement(tag);
 
     // nav {{{1
