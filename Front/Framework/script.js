@@ -11,7 +11,7 @@ class TGFW {
     this.CLICKED_TILE = null;
     this.CONTAINER = null;
 
-    window.onload = () => { tgfw.initDom(); }
+    window.onload = () => { this.initDom(); }
   }
 
   updateGameId(id) {
