@@ -21,15 +21,15 @@ namespace ChessAsp.Pieces
         public Queen(string color)
         {
             Color = color;
-            Name = color[0] + "king";
+            Name = color[0] + "queen";
         }
 
         public bool IsMoveCorrect(ChessGame game, Coordinate src, Coordinate dst, string color)
         {
-            var hBishop = new Bishop(Color);
-            var hRook = new Rook(Color);
+            var hBishop = new Bishop(color);
+            var hRook = new Rook(color);
 
-            return hBishop.IsMoveCorrect(game, src, dst, Color) || hRook.IsMoveCorrect(game, src, dst, Color);
+            return hBishop.IsMoveCorrect(game, src, dst, color) || hRook.IsMoveCorrect(game, src, dst, color);
         }
     }
 }

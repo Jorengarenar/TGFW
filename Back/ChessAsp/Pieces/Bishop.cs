@@ -30,10 +30,23 @@ namespace ChessAsp.Pieces
             if (color == "black") { prefix = "b"; }
             bool result = false;
 
-            // right bottom
+            for (int x = src.x + 1, y = src.y + 1; x < 8 && y < 8; x++, y++)
+            {
+                if (x == dst.x && y == dst.y && (game.Board.GetPieceByCoords(dst.x, dst.y) == null || !game.Board.GetPieceByCoords(dst.x, dst.y).Name.StartsWith(prefix)))
+                {
+                    result = true;
+                    break;
+                }
+
+                if (game.Board.GetPieceByCoords(x, y) != null)
+                {
+                    break;
+                }
+            }
+
             for (int x = src.x + 1, y = src.y - 1; x < 8 && y >= 0; x++, y--)
             {
-                if (x == dst.x && y == dst.y && game.Board.GetPieceByCoords(x, y) != null && !game.Board.GetPieceByCoords(x, y).Name.StartsWith(prefix))
+                if (x == dst.x && y == dst.y && (game.Board.GetPieceByCoords(dst.x, dst.y) == null || !game.Board.GetPieceByCoords(dst.x, dst.y).Name.StartsWith(prefix)))
                 {
                     result = true;
                     break;
@@ -41,20 +54,13 @@ namespace ChessAsp.Pieces
 
                 if (game.Board.GetPieceByCoords(x, y) != null)
                 {
-                    break;
-                }
-
-                if (x == dst.x && y == dst.y)
-                {
-                    result = true;
                     break;
                 }
             }
 
-            // right left
-            for (int x = src.x - 1, y = src.y - 1; x < 8 && y >= 0; x--, y--)
+            for (int x = src.x - 1, y = src.y + 1; x >= 0 && y < 8; x--, y++)
             {
-                if (x == dst.x && y == dst.y && game.Board.GetPieceByCoords(x, y) != null && !game.Board.GetPieceByCoords(x, y).Name.StartsWith(prefix))
+                if (x == dst.x && y == dst.y && (game.Board.GetPieceByCoords(dst.x, dst.y) == null || !game.Board.GetPieceByCoords(dst.x, dst.y).Name.StartsWith(prefix)))
                 {
                     result = true;
                     break;
@@ -62,20 +68,13 @@ namespace ChessAsp.Pieces
 
                 if (game.Board.GetPieceByCoords(x, y) != null)
                 {
-                    break;
-                }
-
-                if (x == dst.x && y == dst.y)
-                {
-                    result = true;
                     break;
                 }
             }
 
-            // right top
-            for (int x = src.x + 1, y = src.y + 1; x < 8 && y >= 0; x++, y++)
+            for (int x = src.x - 1, y = src.y - 1; x >= 0 && y >= 0; x--, y--)
             {
-                if (x == dst.x && y == dst.y && game.Board.GetPieceByCoords(x, y) != null && !game.Board.GetPieceByCoords(x, y).Name.StartsWith(prefix))
+                if (x == dst.x && y == dst.y && (game.Board.GetPieceByCoords(dst.x, dst.y) == null || !game.Board.GetPieceByCoords(dst.x, dst.y).Name.StartsWith(prefix)))
                 {
                     result = true;
                     break;
@@ -83,33 +82,6 @@ namespace ChessAsp.Pieces
 
                 if (game.Board.GetPieceByCoords(x, y) != null)
                 {
-                    break;
-                }
-
-                if (x == dst.x && y == dst.y)
-                {
-                    result = true;
-                    break;
-                }
-            }
-
-            // right bottom
-            for (int x = src.x - 1, y = src.y + 1; x < 8 && y >= 0; x--, y++)
-            {
-                if (x == dst.x && y == dst.y && game.Board.GetPieceByCoords(x, y) != null && !game.Board.GetPieceByCoords(x, y).Name.StartsWith(prefix))
-                {
-                    result = true;
-                    break;
-                }
-
-                if (game.Board.GetPieceByCoords(x, y) != null)
-                {
-                    break;
-                }
-
-                if (x == dst.x && y == dst.y)
-                {
-                    result = true;
                     break;
                 }
             }
