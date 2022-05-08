@@ -3,6 +3,7 @@
  * Copyright      2021 dolidius
  */
 
+// deno-lint-ignore no-unused-vars
 class TGFW {
   constructor(game, serverUrl) {
     this.GAME = game;
@@ -35,11 +36,13 @@ class TGFW {
     }
   }
 
-  async newGame() {
-    const res = await fetch(`${this.SERVER_URL}/${this.GAME}`, {
-      method: "POST"
-    });
-    if (this.updateGameId(await res.json())) {
+  async newGame(url) {
+    if (!url) {
+      url = `${this.SERVER_URL}/${this.GAME}`;
+    }
+
+    const res = await fetch(url, { method: "POST" });
+    if (this.updateGameId(await res.text())) {
       this.drawBoard();
     }
   }
