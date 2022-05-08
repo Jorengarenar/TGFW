@@ -13,6 +13,9 @@ namespace Framework
         public List<Piece> Pieces {
             get; set;
         }
+
+        public string TexturePath { get; set; }
+
         public Coordinate Coordinate {
             get; set;
         } = new Coordinate(0, 0);

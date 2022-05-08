@@ -75,7 +75,7 @@ namespace Framework
         {
             var tile = GetTileByCoords(x, y);
 
-            if (tile.Pieces.Count == 1)
+            if (tile != null && tile.Pieces.Count == 1)
             {
                 return tile.Pieces[0];
             }

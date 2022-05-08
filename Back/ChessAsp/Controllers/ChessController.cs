@@ -47,5 +47,25 @@ namespace ChessAsp.Controllers
         {
             return repository.MakeMove(id, srcx, srcy, dstx, dsty);
         }
+
+        [HttpGet("{id}/position")]
+        public string VisualizePosition(int id)
+        {
+            var game = repository.Get(id);
+            return repository.VisualisePosition((ChessGame)game);
+        }
+
+        [HttpGet("{id}/save")]
+        public string SavePosition(int id)
+        {
+            var game = repository.Get(id);
+            return repository.ConvertIntoFEN((ChessGame)game);
+        }
+
+        [HttpPost("{id}/load")]
+        public Game LoadPosition(int id, [FromBody] FENFormat FEN)
+        {
+            return repository.LoadFromFEN(FEN.FEN, id);
+        }   
     }
 }

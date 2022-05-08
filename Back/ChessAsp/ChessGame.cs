@@ -6,14 +6,17 @@
 
 using Framework;
 using ChessAsp.Pieces;
+using System.Collections.Generic;
 
 namespace ChessAsp
 {
     public class ChessGame : Game
     {
+        public string turn;
         public ChessGame()
         {
             this.Board = new Board(8, 8);
+            this.turn = "white";
             InitializeBoard();
             SetDefaultPosition();
         }
@@ -41,8 +44,22 @@ namespace ChessAsp
 
         public void SetDefaultPosition ()
         {
+            ClearBoard();
             SetOneColorPieces(false);
             SetOneColorPieces(true);
+            this.turn = "white";
+        }
+
+        private void ClearBoard()
+        {
+            for (int i = 0; i < 8; ++i)
+            {
+                for (int j = 0; j < 8; ++j)
+                {
+                    Tile temp = this.Board.GetTile(i, j);
+                    temp.Pieces = new List<Piece>();
+                }
+            }
         }
 
         private void SetOneColorPieces (bool isBlack)

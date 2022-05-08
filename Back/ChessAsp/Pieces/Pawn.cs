@@ -28,12 +28,18 @@ namespace ChessAsp.Pieces
         {
             if (color == "white")
             {
-                if (src.y == 1 && src.x == dst.x && ((src.y == src.y + 1 && game.Board.GetPieceByCoords(dst.x, dst.y) == null) || (src.y == src.y + 2 && game.Board.GetPieceByCoords(dst.x, dst.y) == null && game.Board.GetPieceByCoords(dst.x, dst.y - 1) == null)))
+
+                // move forward 2 positions from starting
+                if (src.y == 1 && src.x == dst.x &&
+                   (dst.y == src.y + 2 && game.Board.GetPieceByCoords(dst.x, dst.y) == null && game.Board.GetPieceByCoords(dst.x, dst.y - 1) == null))
                 {
                     return true;
                 }
 
-                if (src.x == dst.x && src.y + 1 == dst.y && game.Board.GetPieceByCoords(dst.x, dst.y) == null)
+                //single move forward
+                if (src.x == dst.x 
+                    && src.y + 1 == dst.y 
+                    && game.Board.GetPieceByCoords(dst.x, dst.y) == null)
                 {
                     return true;
                 }
@@ -53,12 +59,17 @@ namespace ChessAsp.Pieces
 
             if (color == "black")
             {
-                if (src.y == 7 && src.x == dst.x && ((src.y == src.y - 1 && game.Board.GetPieceByCoords(dst.x, dst.y) == null) || (src.y == src.y - 2 && game.Board.GetPieceByCoords(dst.x, dst.y) == null && game.Board.GetPieceByCoords(dst.x, dst.y - 1) == null)))
+                // move forward 2 positions from starting
+                if (src.y == 6 && src.x == dst.x &&
+                    (dst.y == src.y - 2 && game.Board.GetPieceByCoords(dst.x, dst.y) == null && game.Board.GetPieceByCoords(dst.x, dst.y + 1) == null))
                 {
                     return true;
                 }
 
-                if (src.x == dst.x && src.y - 1 == dst.y && game.Board.GetPieceByCoords(dst.x, dst.y) == null)
+                //single move forward
+                if (src.x == dst.x 
+                    && src.y - 1 == dst.y 
+                    && game.Board.GetPieceByCoords(dst.x, dst.y) == null)
                 {
                     return true;
                 }
