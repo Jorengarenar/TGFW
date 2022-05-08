@@ -7,7 +7,7 @@ namespace Framework {
         private Dictionary<string, Game> games = new Dictionary<string, Game>();
 
         public Game Get(string id) {
-            if (games.ContainsKey(id)) {
+            if (id != null && games.ContainsKey(id)) {
                 return games[id];
             }
             return null;
