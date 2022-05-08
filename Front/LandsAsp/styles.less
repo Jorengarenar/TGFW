@@ -1,0 +1,83 @@
+/* SPDX-License-Identifier:  Apache-2.0
+ * Copyright 2022 Jorengarenar
+ */
+
+#TGFW {
+  #gameId {
+    margin-right: 50px;
+  }
+
+  .tile {
+    border: 1px solid black;
+    height: 75px;
+  }
+
+  .piece {
+    & {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      margin: 5px;
+      border: 1px solid transparent;
+      width: min-content;
+    }
+
+    &.selected {
+      border-color: red;
+    }
+
+    &.enabled {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: auto;
+    }
+
+    .fragment {
+      & {
+        width: 1.1em;
+        height: 1.1em;
+        text-align: center;
+      }
+
+      &:nth-child(1) {
+        grid-column-start: 2;
+      }
+
+      &:nth-child(2) {
+        grid-column-start: 1;
+      }
+
+      &:nth-child(5) {
+        grid-column-start: 2;
+      }
+
+      /*  City = 15,
+       *  Road = 10,
+       *  Grass = 3,
+       *  Blank = 0
+       */
+      &[data-type="15"] {
+        color: cyan;
+      }
+
+      &[data-type="10"] {
+        color: gray;
+      }
+
+      &[data-type="3"] {
+        color: #00f200;
+      }
+
+
+      &[data-owner="0"] {
+        background: #035703;
+      }
+
+      &[data-owner="1"] {
+        background: blue;
+      }
+    }
+  }
+
+}
