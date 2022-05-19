@@ -30,7 +30,8 @@ namespace Lands {
             }
             
             for (int i = 0; i < players.Count; ++i) {
-                this.turnsMediator.AddPlayer(new LandsPlayer(this.turnsMediator, i, players[i].name, players[i].color, userInterface));
+                this.turnsMediator.AddPlayer(new LandsPlayer(this.turnsMediator, i, players[i].name, players[i].color, userInterface, this));
+                turnsMediator.players.Last().isRobot = players[i].isRobot;
             }
             Results = turnsMediator.players.Select(x => 0).ToList();
             this.Board = new Board(boardWidth, boardHeight);

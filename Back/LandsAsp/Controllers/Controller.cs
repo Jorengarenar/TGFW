@@ -15,7 +15,10 @@ namespace LandsAsp.Controllers {
         [HttpGet("get")]
         public LandsData Get(string id) {
             LandsGame game = (LandsGame) repository.Get(id);
-            return new LandsData(game.Board, game.AvailableTiles, game.turnsMediator.waitingFor);
+            if (game != null) {
+                return new LandsData(game.Board, game.AvailableTiles, game.turnsMediator.waitingFor);
+            }
+            return null;
         }
 
         [HttpGet("results")]
@@ -28,10 +31,17 @@ namespace LandsAsp.Controllers {
             }
         }
 
+        [HttpPost("createsingle")]
+        public string CreateSingle(int width, int height) {
+            IUserInterface userInterface = new WebUserInterface();
+            List<LandsPlayerData> players = new List<LandsPlayerData>() { new LandsPlayerData("Player"), new LandsPlayerData("Bot", true) };
+            return repository.Add(new LandsGame(width, height, players, userInterface, TurnsMediator.Mediators.Web));
+        }
+
         [HttpPost("create")]
         public string Create(string firstName, string secondName, int width, int height) {
             IUserInterface userInterface = new WebUserInterface();
-            List<LandsPlayerData> players = new List<LandsPlayerData>() { new LandsPlayerData(firstName), new LandsPlayerData(secondName)};
+            List<LandsPlayerData> players = new List<LandsPlayerData>() { new LandsPlayerData(firstName), new LandsPlayerData(secondName) };
             return repository.Add(new LandsGame(width, height, players, userInterface, TurnsMediator.Mediators.Web));
         }
 
