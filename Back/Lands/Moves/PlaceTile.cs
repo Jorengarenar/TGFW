@@ -5,6 +5,7 @@
  */
 
 using Framework;
+using System;
 
 namespace Lands {
     //tile:availableTileIndex;tileX;tileY
@@ -17,16 +18,25 @@ namespace Lands {
             int tileIndex = int.Parse(content[0]);
             int x = int.Parse(content[1]);
             int y = int.Parse(content[2]);
-            if (x >= 0 && x < game.Board.GetWidth() && y >= 0 && y < game.Board.GetHeight()) {
-                if (lands.Board.GetTile(x, y) == lands.blank) {
-                    lands.Board.SetTile(lands.AvailableTiles[tileIndex], x, y);
-                    lands.AvailableTiles.RemoveAt(tileIndex);
-                }
+            if (IsPossible(command)) {
+                lands.Board.SetTile(lands.AvailableTiles[tileIndex], x, y);
+                lands.AvailableTiles.RemoveAt(tileIndex);
             }
         }
 
         public override bool IsPossible(string command) {
-            throw new System.NotImplementedException();
+            try {
+                string[] content = command.Split(';');
+                LandsGame lands = (LandsGame) game;
+                int tileIndex = int.Parse(content[0]);
+                int x = int.Parse(content[1]);
+                int y = int.Parse(content[2]);
+                return x >= 0 && x < game.Board.GetWidth() && y >= 0 &&
+                    y < game.Board.GetHeight() && tileIndex >= 0 && tileIndex < lands.AvailableTiles.Count &&
+                    lands.Board.GetTile(x, y) == lands.blank;
+            } catch {
+                return false;
+            }
         }
     }
 }

@@ -6,10 +6,11 @@
 
 namespace Framework
 {
-    public abstract class Player
-    {
+    public abstract class Player {
         public int Id { get; set; }
         public string Name { get; set; }
+
+        public bool isRobot = false;
 
         protected TurnsMediator turnsMediator;
 

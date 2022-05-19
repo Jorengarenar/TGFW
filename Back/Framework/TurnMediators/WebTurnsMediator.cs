@@ -31,6 +31,9 @@ namespace Framework
                     won();
                     return;
                 }
+                if (players[waitingFor].isRobot) {
+                    players[waitingFor].Move();
+                }
             }
         }
     }

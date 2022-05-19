@@ -5,6 +5,7 @@
  */
 
 using Framework;
+using System;
 
 namespace Lands {
     //meeple:pieceIndex;tileX;tileY;ownerId
@@ -17,19 +18,30 @@ namespace Lands {
             int x = int.Parse(content[1]);
             int y = int.Parse(content[2]);
             int ownerId = int.Parse(content[3]);
-            if (x >= 0 && x < game.Board.GetWidth() && y >= 0 && y < game.Board.GetHeight()) {
+            if (IsPossible(command)) {
                 LandsTile landsTile = (LandsTile) game.Board.GetTile(x, y);
                 LandsPiece landsPiece = (LandsPiece) landsTile.Pieces[pieceIndex];
-                if (landsPiece.Meeple == null && landsPiece.Type != LandsPiece.PieceType.Blank) {
-                    LandsPiece.PieceType pieceType = landsPiece.Type;
-                    landsPiece.SetMeeple(new Meeple((LandsPlayer) game.turnsMediator.players[ownerId]));
-                    MakeOthers(x, y, pieceIndex, ownerId, pieceType, game.Board);
-                }
+                LandsPiece.PieceType pieceType = landsPiece.Type;
+                landsPiece.SetMeeple(new Meeple((LandsPlayer) game.turnsMediator.players[ownerId]));
+                MakeOthers(x, y, pieceIndex, ownerId, pieceType, game.Board);
             }
         }
 
         public override bool IsPossible(string command) {
-            throw new System.NotImplementedException();
+            try {
+                string[] content = command.Split(';');
+                int pieceIndex = int.Parse(content[0]);
+                int x = int.Parse(content[1]);
+                int y = int.Parse(content[2]);
+                if (x >= 0 && x < game.Board.GetWidth() && y >= 0 && y < game.Board.GetHeight()) {
+                    LandsTile landsTile = (LandsTile) game.Board.GetTile(x, y);
+                    LandsPiece landsPiece = (LandsPiece) landsTile.Pieces[pieceIndex];
+                    return landsPiece.Meeple == null && landsPiece.Type != LandsPiece.PieceType.Blank;
+                }
+                return false;
+            } catch {
+                return false;
+            }
         }
 
         private void MakeOthers(int x, int y, int pieceIndex, int ownerId, LandsPiece.PieceType pieceType, Board board) {

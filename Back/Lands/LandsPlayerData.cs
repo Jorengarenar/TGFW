@@ -10,10 +10,17 @@ namespace Lands {
     public class LandsPlayerData {
         public string name;
         public ConsoleColor color;
+        public bool isRobot = false;
 
         public LandsPlayerData(string name, ConsoleColor color = ConsoleColor.White) {
             this.name = name;
             this.color = color;
+        }
+
+        public LandsPlayerData(string name, bool isRobot, ConsoleColor color = ConsoleColor.White) { 
+            this.name = name;
+            this.color = color;
+            this.isRobot = isRobot;
         }
     }
 }
