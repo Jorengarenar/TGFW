@@ -3,8 +3,33 @@
  */
 
 #TGFW {
+  --player-one-color: blue;
+  --player-two-color: #035703;
+
   #gameId {
     margin-right: 50px;
+  }
+
+  #current-player {
+    &:before {
+      content: "Player: ";
+    }
+
+    &:after {
+      width: 1em;
+      height: 1em;
+      content: " ";
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    &[data-turn="0"]:after {
+      background: var(--player-one-color);
+    }
+
+    &[data-turn="1"]:after {
+      background: var(--player-two-color);
+    }
   }
 
   .tile {
@@ -71,11 +96,11 @@
 
 
       &[data-owner="0"] {
-        background: #035703;
+        background: var(--player-one-color);
       }
 
       &[data-owner="1"] {
-        background: blue;
+        background: var(--player-two-color);
       }
     }
   }
