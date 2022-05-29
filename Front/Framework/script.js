@@ -103,7 +103,7 @@ class TGFW {
 
     // }}}2
 
-    nav.append(optionsDiv, gameStatsDiv);
+    nav.append(gameStatsDiv, optionsDiv);
 
     // gameDiv {{{1
     const gameDiv = newEl("div");
