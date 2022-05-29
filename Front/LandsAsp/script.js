@@ -177,7 +177,7 @@ class TgfwLands extends TGFW {
       url += "createsingle?";
     } else {
       this.SINGLEGAME = false;
-      url += "create"
+      url += "create?"
         + `firstName=${firstName}&`
         + `secondName=${secondName}&`
     }
