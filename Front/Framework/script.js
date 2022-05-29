@@ -95,11 +95,16 @@ class TGFW {
     const gameStatsDiv = newEl("div");
     gameStatsDiv.id = "gameStats";
 
-    // gameIdDiv
+    // gameIdDiv {{{3
     const gameIdDiv = newEl("div");
     gameIdDiv.id = "gameId";
 
-    gameStatsDiv.append(gameIdDiv);
+    // playerInd {{{3
+    const playerInd = newEl("div");
+    playerInd.id = "current-player";
+    // }}}3
+
+    gameStatsDiv.append(gameIdDiv, playerInd);
 
     // }}}2
 
