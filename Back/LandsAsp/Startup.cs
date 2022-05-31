@@ -40,7 +40,7 @@ namespace LandsAsp {
 
             app.UseHttpsRedirection();
 
-            app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyOrigin().AllowCredentials());
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyOrigin());
 
             app.UseRouting();
 
