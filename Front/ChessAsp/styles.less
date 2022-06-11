@@ -1,3 +1,20 @@
 /* SPDX-License-Identifier:  Apache-2.0
  * Copyright 2022 Jorengarenar
  */
+
+#TGFW {
+  --tile-size: 75px;
+
+  .tile {
+    // background-image: attr(data-bg url);
+    width: var(--tile-size);
+    height: var(--tile-size);
+  }
+
+  .tile.selected {
+    border: 1px solid yellow;
+    width: calc(var(--tile-size) - 2px);
+    height: calc(var(--tile-size) - 2px);
+  }
+
+}

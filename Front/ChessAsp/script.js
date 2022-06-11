@@ -9,7 +9,7 @@ class TgfwChess extends TGFW {
 
     const boardDiv = this.CONTAINER.querySelector("#board");
     boardDiv.innerHTML = "";
-    boardDiv.style = `grid-template-columns: repeat(${data.board.width}, 75px)`;
+    boardDiv.style = `grid-template-columns: repeat(${data.board.width}, var(--tile-size))`;
 
     const cmpTiles = (a, b) => {
       if (a.coordinate.y === b.coordinate.y) {
@@ -19,39 +19,51 @@ class TgfwChess extends TGFW {
     };
 
     data.board.tiles.sort(cmpTiles).forEach((tileData) => {
-      const bar = document.createElement("div");
+      const tile = document.createElement("div");
+      tile.classList.add("tile");
 
-      const tile = document.createElement("img");
-      tile.src = tileData.texturePath;
       tile.dataset.x = tileData.coordinate.x;
       tile.dataset.y = tileData.coordinate.y;
+
+      // tile.dataset.bg = tileData.texturePath;
+      if (tileData.texturePath.includes("dark")) {
+        tile.style = "background: #333";
+      } else {
+        tile.style = "background: white";
+      }
+
+      if (tileData.pieces.length) {
+        const piece = document.createElement("img");
+        piece.src = `img/${tileData.pieces[0].name}.svg`;
+        tile.appendChild(piece);
+        tile.dataset.piece = tileData.pieces[0].name;
+      }
 
       // deno-lint-ignore no-this-alias
       const that = this;
       tile.onclick = function() {
-        if (!that.CLICKED_TILE) {
-          if (this.parentElement.dataset.piece) {
-            that.CLICKED_TILE = this;
-          }
+        let selected = that.CONTAINER.querySelector(".tile.selected");
+
+        if (!selected) {
+          this.classList.add("selected")
+          selected = this;
+        } else if (this === selected) {
+          this.classList.remove("selected");
           return;
+        } else {
+          const X = this.dataset.x;
+          const Y = this.dataset.y;
+          const x = selected.dataset.x;
+          const y = selected.dataset.y;
+          that.CLICKED_TILE = null;
+          fetch(`${that.SERVER_URL}/${that.GAME}/move/${that.GAME_ID}/${x}/${y}/${X}/${Y}`, {
+            method: "POST"
+          });
+          that.drawBoard();
         }
-        const X = this.dataset.x;
-        const Y = this.dataset.y;
-        const x = that.CLICKED_TILE.dataset.x;
-        const y = that.CLICKED_TILE.dataset.y;
-        that.CLICKED_TILE = null;
-        fetch(`${that.SERVER_URL}/${that.GAME}/move/${that.GAME_ID}/${x}/${y}/${X}/${Y}`, {
-          method: "POST"
-        });
-        that.drawBoard();
       }
 
-      if (tileData.pieces.length) {
-        bar.dataset.piece = tileData.pieces[0].name;
-      }
-
-      bar.appendChild(tile);
-      boardDiv.appendChild(bar);
+      boardDiv.appendChild(tile);
     });
   }
 }
