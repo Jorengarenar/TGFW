@@ -12,6 +12,12 @@ namespace Framework
             get; set;
         }
 
+        public string turn
+        {
+            get; set;
+        }
+
+
         public TurnsMediator turnsMediator;
     }
 }
