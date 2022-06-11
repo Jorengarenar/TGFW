@@ -30,11 +30,11 @@ namespace ChessAsp
                     Tile temp = this.Board.GetTile(i, j);
                     if ((i + j) % 2 == 0)
                     {
-                        temp.TexturePath = "img/chess/darkTile.png";
+                        temp.TexturePath = "img/darkTile.png";
                     }
                     else
                     {
-                        temp.TexturePath = "img/chess/lightTile.png";
+                        temp.TexturePath = "img/lightTile.png";
                     }
 
                     temp.SetCoordinates(i, j);
