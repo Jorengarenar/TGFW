@@ -24,7 +24,7 @@ namespace ChessAsp.Controllers
         }
 
         [HttpGet("{id}")]
-        public Game Get(int id)
+        public ChessGame Get(int id)
         {
             return repository.Get(id);
         }
