@@ -11,6 +11,8 @@ class TgfwChess extends TGFW {
     boardDiv.innerHTML = "";
     boardDiv.style = `grid-template-columns: repeat(${data.board.width}, var(--tile-size))`;
 
+    this.CONTAINER.querySelector("#gameStats #current-player").innerHTML = `Turn: ${data.turn}`;
+
     const cmpTiles = (a, b) => {
       if (a.coordinate.y === b.coordinate.y) {
         return a.coordinate.x - b.coordinate.x;
