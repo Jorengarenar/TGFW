@@ -29,9 +29,9 @@ class TgfwChess extends TGFW {
 
       // tile.dataset.bg = tileData.texturePath;
       if (tileData.texturePath.includes("dark")) {
-        tile.style = "background: #333";
+        tile.classList.add("dark");
       } else {
-        tile.style = "background: white";
+        tile.classList.add("light");
       }
 
       if (tileData.pieces.length) {
