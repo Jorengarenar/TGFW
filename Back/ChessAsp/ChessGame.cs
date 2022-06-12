@@ -12,7 +12,6 @@ namespace ChessAsp
 {
     public class ChessGame : Game
     {
-        public string turn;
         public ChessGame()
         {
             this.Board = new Board(8, 8);
