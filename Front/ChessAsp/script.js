@@ -47,6 +47,10 @@ class TgfwChess extends TGFW {
         let selected = that.CONTAINER.querySelector(".tile.selected");
 
         if (!selected) {
+          if (!this.dataset.piece) { return; }
+          if (data.turn === "white" && this.dataset.piece[0] == 'b') { return; }
+          if (data.turn === "black" && this.dataset.piece[0] == 'w') { return; }
+
           this.classList.add("selected")
           selected = this;
         } else if (this === selected) {
