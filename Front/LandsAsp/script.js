@@ -3,13 +3,31 @@
  */
 
 class TgfwLands extends TGFW {
+  async checkPlayer() {
+    if (!this.ONLINE) { return true; }
+
+    const res = await fetch(`${this.SERVER_URL}/${this.GAME}/get?id=${this.GAME_ID}`)
+    const data = await res.json();
+    const flag = (this.PLAYER_NUM == Number(data.waitingFor));
+
+    return flag;
+  }
+
+  addPlayerColorToDom() {
+    const pl = document.createElement("div");
+    pl.dataset.num = this.PLAYER_NUM;
+    pl.classList.add("player-color");
+    this.CONTAINER.querySelector("#gameStats").appendChild(pl);
+
+    this.CONTAINER.querySelector("#current-player").classList.add("player-color");
+  }
+
   async drawBoard() {
     const res = await fetch(`${this.SERVER_URL}/${this.GAME}/get?id=${this.GAME_ID}`)
     const data = await res.json();
 
-    // console.log(data);
-
     const player = data.waitingFor;
+    this.CONTAINER.querySelector("#current-player").dataset.num = player;
 
     const boardDiv = this.CONTAINER.querySelector("#board");
     const piecesDiv = this.CONTAINER.querySelector("#pieces");
@@ -57,6 +75,9 @@ class TgfwLands extends TGFW {
     let x = 0;
     let y = 0;
 
+    // deno-lint-ignore no-this-alias
+    const that = this;
+
     data.board.tiles.forEach((tileData) => {
       const tile = document.createElement("div");
       tile.classList.add("tile");
@@ -69,9 +90,9 @@ class TgfwLands extends TGFW {
         ++y;
       }
 
-      // deno-lint-ignore no-this-alias
-      const that = this;
-      tile.onclick = function() {
+      tile.onclick = async function() {
+        if (!await that.checkPlayer()) { return; }
+
         const selected = piecesDiv.querySelector(".selected");
 
         if (!selected) { return; }
@@ -97,7 +118,9 @@ class TgfwLands extends TGFW {
 
         piece.childNodes.forEach(frg => {
           if (frg.dataset.owner) { return; }
-          frg.onclick = function() {
+          frg.onclick = async function() {
+            if (!await that.checkPlayer()) { return; }
+
             const tile = piece.parentElement;
             const X = tile.dataset.x;
             const Y = tile.dataset.y;
@@ -109,7 +132,6 @@ class TgfwLands extends TGFW {
               + `pieceIndex=${id}&`
               + `tileX=${X}&`
               + `tileY=${Y}`;
-            console.log(url)
             fetch(url, { method: "POST" });
 
             that.drawBoard();
@@ -130,7 +152,9 @@ class TgfwLands extends TGFW {
       const piece = createPiece(pieceData);
       piece.dataset.id = id++;
 
-      piece.onclick = () => {
+      piece.onclick = async function() {
+        if (!await that.checkPlayer()) { return; }
+
         if (!piece.classList.contains("enabled")) {
           piecesDiv.querySelector(".selected")?.classList.remove("selected");
           piece.classList.add("selected");
@@ -156,19 +180,49 @@ class TgfwLands extends TGFW {
         alert("End of game!\n\nWinner: " + winner + "\nScores: " + data);
       }
     }
+
+    if (this.ONLINE) {
+      if (!await this.checkPlayer() && !this.REFRESHING) {
+        this.REFRESHING = setInterval(function() {
+          if (that.checkPlayer()) {
+            clearInterval(that.REFRESHING);
+            that.REFRESHING = null;
+          }
+          that.drawBoard();
+        }, 500);
+      }
+    }
   }
 
   async newGame() {
-    const firstName = "0"; // prompt("First player: ");
-    const secondName = "1"; // prompt("Second player: ");
+    this.ONLINE = Number(prompt("Online? [0/1] "));
+    this.PLAYER_NUM = 0;
+
+    const numOfPlayers = this.ONLINE ? 2 : Number(prompt("Number of players [1-2]: "));
     const width = prompt("Board width: ");
     const height = prompt("Board height: ");
-    const url = `${this.SERVER_URL}/${this.GAME}/create?`
-      + `firstName=${firstName}&`
-      + `secondName=${secondName}&`
-      + `width=${width}&`
-      + `height=${height}`;
+
+    let url = `${this.SERVER_URL}/${this.GAME}/`;
+    if (numOfPlayers === 1) {
+      url += "createsingle?";
+    } else {
+      const firstName = "0"; // prompt("First player: ");
+      const secondName = "1"; // prompt("Second player: ");
+      url += "create?"
+        + `firstName=${firstName}&`
+        + `secondName=${secondName}&`
+    }
+    url += `width=${width}&height=${height}`;
+
     await super.newGame(url);
+    this.addPlayerColorToDom();
+  }
+
+  joinGame() {
+    this.PLAYER_NUM = 1;
+    this.ONLINE = true;
+    super.joinGame();
+    this.addPlayerColorToDom();
   }
 }
 

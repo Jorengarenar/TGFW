@@ -3,8 +3,37 @@
  */
 
 #TGFW {
+  --player-one-color: blue;
+  --player-two-color: #035703;
+
   #gameId {
     margin-right: 50px;
+  }
+
+  .player-color {
+    &:before {
+      content: "Player: ";
+    }
+
+    &#current-player:before {
+      content: "Turn of player: ";
+    }
+
+    &:after {
+      width: 1em;
+      height: 1em;
+      content: " ";
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    &[data-num="0"]:after {
+      background: var(--player-one-color);
+    }
+
+    &[data-num="1"]:after {
+      background: var(--player-two-color);
+    }
   }
 
   .tile {
@@ -19,6 +48,7 @@
       margin: 5px;
       border: 1px solid transparent;
       width: min-content;
+      cursor: pointer;
     }
 
     &.selected {
@@ -31,6 +61,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
       margin: auto;
+      cursor: unset;
     }
 
     .fragment {
@@ -38,6 +69,10 @@
         width: 1.1em;
         height: 1.1em;
         text-align: center;
+      }
+
+      &:not([data-owner]) {
+        cursor: pointer;
       }
 
       &:nth-child(1) {
@@ -52,11 +87,13 @@
         grid-column-start: 2;
       }
 
+
       /*  City = 15,
        *  Road = 10,
        *  Grass = 3,
        *  Blank = 0
        */
+
       &[data-type="15"] {
         color: cyan;
       }
@@ -71,11 +108,11 @@
 
 
       &[data-owner="0"] {
-        background: #035703;
+        background: var(--player-one-color);
       }
 
       &[data-owner="1"] {
-        background: blue;
+        background: var(--player-two-color);
       }
     }
   }

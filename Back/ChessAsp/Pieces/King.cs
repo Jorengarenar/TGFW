@@ -24,10 +24,52 @@ namespace ChessAsp.Pieces
             Name = color[0] + "king";
         }
 
+        public Castle didCastle (ChessGame game, Coordinate src, Coordinate dst, string color)
+        {
+            if (color == "white" &&
+                src.x == 4 && src.y == 0 &&
+                (dst.x == 6 && dst.y == 0 && game.Board.GetPieceByCoords(5, 0) == null && game.Board.GetPieceByCoords(6, 0) == null && game.Board.GetPieceByCoords(7, 0).Name == "wrook")
+                )
+            {
+                game.Board.UpdatePiecesOnPosition(new Coordinate(7, 0), new Coordinate(5, 0));
+                return new Castle(true, new Coordinate(6,0), new Coordinate(5, 0));
+            }
+
+            if (color == "white" &&
+                src.x == 4 && src.y == 0 &&
+                (dst.x == 2 && dst.y == 0 && game.Board.GetPieceByCoords(2, 0) == null && game.Board.GetPieceByCoords(3, 0) == null && game.Board.GetPieceByCoords(1, 0) == null && game.Board.GetPieceByCoords(0, 0).Name == "wrook")
+                )
+            {
+                game.Board.UpdatePiecesOnPosition(new Coordinate(0, 0), new Coordinate(3,0));
+                return new Castle(true, new Coordinate(2, 0), new Coordinate(3, 0));
+            }
+
+            if (color == "black" &&
+                src.x == 4 && src.y == 7 &&
+                (dst.x == 6 && dst.y == 7 && game.Board.GetPieceByCoords(5, 7) == null && game.Board.GetPieceByCoords(6, 7) == null && game.Board.GetPieceByCoords(7, 7).Name == "brook")
+                )
+            {
+                game.Board.UpdatePiecesOnPosition(new Coordinate(7, 7), new Coordinate(5, 7));
+                return new Castle(true, new Coordinate(6, 7), new Coordinate(5, 7));
+            }
+
+            if (color == "black" &&
+                src.x == 4 && src.y == 7 &&
+                (dst.x == 2 && dst.y == 7 && game.Board.GetPieceByCoords(2, 7) == null && game.Board.GetPieceByCoords(3, 7) == null && game.Board.GetPieceByCoords(1, 7) == null && game.Board.GetPieceByCoords(0, 7).Name == "brook")
+                )
+            {
+                game.Board.UpdatePiecesOnPosition(new Coordinate(0, 7), new Coordinate(3, 7));
+                return new Castle(true, new Coordinate(2, 7), new Coordinate(3, 7));
+            }
+
+            return new Castle(false);
+        }
+
         public bool IsMoveCorrect(ChessGame game, Coordinate src, Coordinate dst, string color)
         {
             string prefix = "w";
             if (color == "black") { prefix = "b"; }
+            
             if (   ((src.x == dst.x && (src.y + 1 == dst.y || src.y - 1 == dst.y))
                     || (src.y == dst.y && (src.x + 1 == dst.x || src.x - 1 == dst.x))
                     || (src.x - 1 == dst.x && src.y + 1 == dst.y)
@@ -35,6 +77,7 @@ namespace ChessAsp.Pieces
                     || (src.x + 1 == dst.x && src.y - 1 == dst.y)
                     || (src.x - 1 == dst.x && src.y - 1 == dst.y))
                    && (game.Board.GetPieceByCoords(dst.x, dst.y) == null || !game.Board.GetPieceByCoords(dst.x, dst.y).Name.StartsWith(prefix))
+                   || didCastle(game, src, dst, color).isPossible
             )
             {
                 return true;

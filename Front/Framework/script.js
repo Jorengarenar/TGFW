@@ -61,10 +61,6 @@ class TGFW {
     // nav {{{1
     const nav = newEl("nav");
 
-    // gameIdDiv {{{2
-    const gameIdDiv = newEl("div");
-    gameIdDiv.id = "gameId";
-
     // optionsDiv {{{2
     const optionsDiv = newEl("div");
     optionsDiv.id = "options";
@@ -94,8 +90,25 @@ class TGFW {
 
     optionsDiv.append(newGameBtn, joinGameBtn, resetGameBtn);
     // }}}2
+    // gameStatsDiv {{{2
 
-    nav.append(gameIdDiv, optionsDiv);
+    const gameStatsDiv = newEl("div");
+    gameStatsDiv.id = "gameStats";
+
+    // gameIdDiv {{{3
+    const gameIdDiv = newEl("div");
+    gameIdDiv.id = "gameId";
+
+    // playerInd {{{3
+    const playerInd = newEl("div");
+    playerInd.id = "current-player";
+    // }}}3
+
+    gameStatsDiv.append(gameIdDiv, playerInd);
+
+    // }}}2
+
+    nav.append(gameStatsDiv, optionsDiv);
 
     // gameDiv {{{1
     const gameDiv = newEl("div");

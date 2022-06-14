@@ -23,7 +23,7 @@ namespace ChessAsp.Repository
             return games;
         }
 
-        public Game Get(int id)
+        public ChessGame Get(int id)
         {
             try
             {
