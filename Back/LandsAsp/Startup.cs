@@ -1,3 +1,7 @@
+/* SPDX-License-Identifier:  Apache-2.0
+ * Copyright 2022 DawidMoza
+ */
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;

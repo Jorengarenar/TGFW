@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* SPDX-License-Identifier:  Apache-2.0
+ * Copyright 2022 DawidMoza
+ */
+
+using System;
 using System.Collections.Generic;
 
 namespace Framework {
@@ -18,7 +22,7 @@ namespace Framework {
                 throw new ArgumentNullException("item");
             }
             string id = Utils.GetRandomString(8);
-            while (games.ContainsKey(id)) { 
+            while (games.ContainsKey(id)) {
                 id = Utils.GetRandomString(8);
             }
             games.Add(id, item);

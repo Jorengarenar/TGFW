@@ -1,4 +1,8 @@
-﻿using Framework;
+﻿/* SPDX-License-Identifier:  Apache-2.0
+ * Copyright 2022 DawidMoza
+ */
+
+using Framework;
 using System;
 using System.Collections.Generic;
 
